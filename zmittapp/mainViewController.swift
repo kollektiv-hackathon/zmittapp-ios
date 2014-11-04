@@ -9,13 +9,12 @@
 import UIKit
 import Alamofire
 
-class mainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class mainTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var data: AnyObject!
     var restaurants : [[String:AnyObject]]!
-    
-    @IBOutlet var overviewTable: UITableView!
 
+    @IBOutlet var _overviewTable: UITableView!
+    
     override func viewDidLoad() {
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -34,7 +33,7 @@ class mainViewController: UIViewController, UITableViewDelegate, UITableViewData
             })
             
             // update our table view
-            self.overviewTable.reloadData()
+            self._overviewTable.reloadData()
             
         }
         
@@ -47,7 +46,7 @@ class mainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // TableView
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // check if array available (request sent)
         if(self.restaurants == nil){
@@ -56,18 +55,29 @@ class mainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return self.restaurants.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Error")
+        //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Error")
         
+        let cell: UITableViewCell = _overviewTable.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as UITableViewCell
         cell.textLabel.text = self.restaurants[indexPath.row]["name"] as? String
 
         cell.detailTextLabel?.text = self.restaurants[indexPath.row]["email"] as? String
         
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        
         return cell
     }
     
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as detailViewController
+        
+        controller.restaurant = self.restaurants[indexPath.row]
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
 
 
 }

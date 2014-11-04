@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		887D0E781A093E0300E3837B /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E771A093E0300E3837B /* detailViewController.swift */; };
 		88E6B8521A077228009F962E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8511A077228009F962E /* AppDelegate.swift */; };
 		88E6B8541A077228009F962E /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* mainViewController.swift */; };
 		88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8551A077228009F962E /* nearbyViewController.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		887D0E771A093E0300E3837B /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		88E6B84C1A077228009F962E /* zmittapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmittapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8501A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E6B8511A077228009F962E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				88E6B8731A079A97009F962E /* Restaurant.swift */,
 				88E6B8511A077228009F962E /* AppDelegate.swift */,
 				88E6B8531A077228009F962E /* mainViewController.swift */,
+				887D0E771A093E0300E3837B /* detailViewController.swift */,
 				88E6B8551A077228009F962E /* nearbyViewController.swift */,
 				88E6B8571A077228009F962E /* Main.storyboard */,
 				88E6B85A1A077228009F962E /* Images.xcassets */,
@@ -309,6 +312,7 @@
 				88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */,
 				88E6B8521A077228009F962E /* AppDelegate.swift in Sources */,
 				88E6B8541A077228009F962E /* mainViewController.swift in Sources */,
+				887D0E781A093E0300E3837B /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
