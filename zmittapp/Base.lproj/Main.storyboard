@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Alle Lokale-->
@@ -61,12 +60,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cge-Sg-Gh2">
-                                <rect key="frame" x="16" y="81" width="383" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugz-TW-Lhe">
                                 <rect key="frame" x="16" y="116" width="383" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -97,18 +90,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCk-Gl-ahU">
+                                <rect key="frame" x="16" y="87" width="327" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cge-Sg-Gh2" firstAttribute="width" secondItem="5iX-PQ-J5R" secondAttribute="height" multiplier="7:100" id="rwd-Wz-gDx"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="_lokalEmail" destination="ugz-TW-Lhe" id="dPc-DC-YU5"/>
                         <outlet property="_lokalLat" destination="is7-EC-uox" id="tQb-pZ-S0N"/>
                         <outlet property="_lokalLng" destination="rGn-oX-2kS" id="FAl-bf-9Zj"/>
                         <outlet property="_lokalMenu" destination="xco-ba-bQX" id="E2e-2J-chw"/>
-                        <outlet property="_lokalName" destination="cge-Sg-Gh2" id="e5Z-8A-P8s"/>
+                        <outlet property="_lokalName" destination="VCk-Gl-ahU" id="MQP-q6-sZT"/>
                         <outlet property="_lokalPhone" destination="NX0-42-K7g" id="ZN9-eA-k3C"/>
                     </connections>
                 </viewController>
