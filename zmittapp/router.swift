@@ -25,7 +25,7 @@ enum Router: URLStringConvertible {
             case .restaurant(let id):
                 return "restaurants/\(id)"
             case .menuItems(let restaurantId):
-                return "restaurants/\(restaurantId)/menuitems/"
+                return "restaurants/\(restaurantId)/menuitems"
             case .menuItem(let restaurantId, let menuId):
                 return "restaurants/\(restaurantId)/menuitems/\(menuId)"
             default:

@@ -12,6 +12,7 @@ import Alamofire
 class mainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var data: AnyObject!
+    var restaurants : [[String:AnyObject]]!
     
     @IBOutlet var overviewTable: UITableView!
 
@@ -20,11 +21,22 @@ class mainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         
-        Alamofire.request(.GET, Router.restaurant(2))
-            .responseJSON { (_, _, JSON, _) in
-                self.data = JSON;
-                self.updateView();
-            };
+        zmRest.getAll { (data) -> Void in
+            
+            // set restaurants
+            self.restaurants = data as [[String:AnyObject]]
+            
+            // get all menus for fetched restaurants
+            zmRest.getAllMenus(data, completion: { (data) -> Void in
+                
+                println(data)
+                
+            })
+            
+            // update our table view
+            self.overviewTable.reloadData()
+            
+        }
         
     }
 
@@ -33,50 +45,24 @@ class mainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    func updateView(){
-        
-        if let jsonResult = self.data as? Array<[String: AnyObject]>  {
-            // handle Array
-            
-            // set restaurant source
-            zmRest.restaurants = jsonResult
-            
-            // reload table
-            overviewTable.reloadData()
-        
-        }else if let jsonResult = self.data as? [String: AnyObject]{
-            // handle single result
-            zmRest.restaurants = [jsonResult]
-
-            // reload table
-            overviewTable.reloadData()
-
-        }else{
-            // handle result format errors here
-            println("request result format error: ")
-            println(self.data)
-        }
-        
-    }
-    
     // TableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // check if array available (request sent)
-        if(zmRest.restaurants == nil){
+        if(self.restaurants == nil){
             return 0
         }
-        return zmRest.restaurants.count
+        return self.restaurants.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Error")
         
-        cell.textLabel.text = zmRest.restaurants[indexPath.row]["name"] as? String
+        cell.textLabel.text = self.restaurants[indexPath.row]["name"] as? String
 
-        cell.detailTextLabel?.text = zmRest.restaurants[indexPath.row]["email"] as? String
+        cell.detailTextLabel?.text = self.restaurants[indexPath.row]["email"] as? String
         
         return cell
     }
