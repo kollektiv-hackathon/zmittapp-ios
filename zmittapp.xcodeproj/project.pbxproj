@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		887D0E781A093E0300E3837B /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E771A093E0300E3837B /* detailViewController.swift */; };
+		887D0E7A1A0A137200E3837B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E791A0A137200E3837B /* Restaurant.swift */; };
 		88E6B8521A077228009F962E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8511A077228009F962E /* AppDelegate.swift */; };
-		88E6B8541A077228009F962E /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* mainViewController.swift */; };
+		88E6B8541A077228009F962E /* mainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* mainTableViewController.swift */; };
 		88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8551A077228009F962E /* nearbyViewController.swift */; };
 		88E6B8591A077228009F962E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B8571A077228009F962E /* Main.storyboard */; };
 		88E6B85B1A077228009F962E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B85A1A077228009F962E /* Images.xcassets */; };
 		88E6B85E1A077228009F962E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B85C1A077228009F962E /* LaunchScreen.xib */; };
 		88E6B86A1A077228009F962E /* zmittappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8691A077228009F962E /* zmittappTests.swift */; };
-		88E6B8741A079A97009F962E /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8731A079A97009F962E /* Restaurant.swift */; };
 		88E6B8821A07B6D8009F962E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E6B87D1A07B554009F962E /* Alamofire.framework */; };
 		88E6B8831A07B6D8009F962E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88E6B87D1A07B554009F962E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88E6B8881A07BE09009F962E /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8871A07BE09009F962E /* router.swift */; };
@@ -75,10 +75,11 @@
 
 /* Begin PBXFileReference section */
 		887D0E771A093E0300E3837B /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
+		887D0E791A0A137200E3837B /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		88E6B84C1A077228009F962E /* zmittapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmittapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8501A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E6B8511A077228009F962E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88E6B8531A077228009F962E /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		88E6B8531A077228009F962E /* mainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainTableViewController.swift; sourceTree = "<group>"; };
 		88E6B8551A077228009F962E /* nearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyViewController.swift; sourceTree = "<group>"; };
 		88E6B8581A077228009F962E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88E6B85A1A077228009F962E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -86,7 +87,6 @@
 		88E6B8631A077228009F962E /* zmittappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zmittappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8681A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E6B8691A077228009F962E /* zmittappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zmittappTests.swift; sourceTree = "<group>"; };
-		88E6B8731A079A97009F962E /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		88E6B8771A07B554009F962E /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		88E6B8871A07BE09009F962E /* router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,9 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				88E6B8871A07BE09009F962E /* router.swift */,
-				88E6B8731A079A97009F962E /* Restaurant.swift */,
+				887D0E791A0A137200E3837B /* Restaurant.swift */,
 				88E6B8511A077228009F962E /* AppDelegate.swift */,
-				88E6B8531A077228009F962E /* mainViewController.swift */,
+				88E6B8531A077228009F962E /* mainTableViewController.swift */,
 				887D0E771A093E0300E3837B /* detailViewController.swift */,
 				88E6B8551A077228009F962E /* nearbyViewController.swift */,
 				88E6B8571A077228009F962E /* Main.storyboard */,
@@ -307,11 +307,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88E6B8741A079A97009F962E /* Restaurant.swift in Sources */,
+				887D0E7A1A0A137200E3837B /* Restaurant.swift in Sources */,
 				88E6B8881A07BE09009F962E /* router.swift in Sources */,
 				88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */,
 				88E6B8521A077228009F962E /* AppDelegate.swift in Sources */,
-				88E6B8541A077228009F962E /* mainViewController.swift in Sources */,
+				88E6B8541A077228009F962E /* mainTableViewController.swift in Sources */,
 				887D0E781A093E0300E3837B /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,119 +7,62 @@
 //
 
 import UIKit
-import Alamofire
 
-var zmRest: zmRestaurant = zmRestaurant();
+// define data a restaurant holds
+struct restaurantData {
+    var id: Int!
+    var name: String!
+    var phone: String!
+    var lat: Double!
+    var lng: Double!
+    var email: String!
+    var menu: [menuData]!
+}
 
-class zmRestaurant: NSObject {
+// define data a menu holds
+struct menuData {
+    var id: Int!
+    var appetizer: String!
+    var main_course: String!
+    var desert: String!
+    var price: Double!
+    var date: String!
+    var vegetarian: Bool!
+    var vegan: Bool!
+}
 
+class Restaurant: NSObject {
     
-    override init(){
-        
-    }
+    // restaurant data
+    var data: restaurantData!
     
-    // get all restaurants and save to restaurants object
-    func getAll(completion: ((data: [[String:AnyObject]]) -> Void)!){
-        
-        var restaurants: [[String:AnyObject]]!
-        
-        Alamofire.request(.GET, Router.restaurants)
-            .responseJSON { (_, _, JSON, _) in
-                
-                restaurants = self.parseRestaurantData(JSON!)
-                    
-                // run callback
-                if((completion) != nil){
-                    completion(data: restaurants)
-                }
-        };
-        
-    }
+    // holds timestamp when Restaurant has last been updated
+    var updatedAt: NSDate!
     
-    // get menus of each restaurant and save to menus Array
-    func getAllMenus(restaurants: [[String: AnyObject]], completion: ((data: [Int: [[String:AnyObject]]]) -> Void)!){
-        
-        var menuItems : [Int: [[String:AnyObject]]]!
-        var count = 0
-        
-        for index in 0...restaurants.count - 1 {
-            
-            var rID : Int = restaurants[index]["id"] as Int
-            
-            Alamofire.request(.GET, Router.menuItems(rID))
-                .responseJSON { (_, _, JSON, _) in
-                    
-                    // initialize menuItems if nil
-                    if(menuItems == nil){
-                        menuItems = [rID: self.parseMenuData(JSON!)]
-                    }else{
-                        menuItems[rID] = self.parseMenuData(JSON!)
-                    }
-                    
-                    // run callback on last cycle
-                    if(count == restaurants.count - 1 && (completion) != nil){
-                        completion(data: menuItems)
-                    }
-                    
-                    count++
-                    
-            };
-            
-        }
-        
-    }
-    
-    // handle request body
-    func parseMenuData(JSON: AnyObject) -> [[String:AnyObject]] {
-        
-        if let jsonResult = JSON as? Array<[String: AnyObject]>  {
-            // got array
-            
-            return jsonResult
-            
-            
-        }else if let jsonResult = JSON as? [String: AnyObject]{
-            // got single object
-            
-            return [jsonResult]
-            
-            
-        }else{
-            // handle result format errors here
-            println("request result format error: ")
-            println(JSON)
-            
-            // return empty
-            return [[String:AnyObject]]()
-        }
-        
-    }
-    
-    
-    // handle request body
-    func parseRestaurantData(JSON: AnyObject) -> [[String:AnyObject]] {
-        
-        if var jsonResult = JSON as? Array<[String: AnyObject]>  {
-            // handle Array
-            
-            return jsonResult
-            
-            
-        }else if let jsonResult = JSON as? [String: AnyObject]{
-            // handle single object
-            
-            return [jsonResult]
-            
-            
-        }else{
-            // handle result format errors here
-            println("request result format error: ")
-            println(JSON)
-            
-            // return empty
-            return [[String:AnyObject]]()
-        }
-        
-    }
+    init (data: restaurantData) {
 
+        super.init()
+        
+        // set new data
+        self.setData(data)
+        
+    }
+    
+    func setData(data: restaurantData) {
+        
+        // set new data
+        self.data = data
+        
+        // update timestamp
+        self.updatedAt = NSDate()
+    }
+    
+    // add menu to Restaurant
+    func addMenu(data: menuData) {
+        
+        // append menu to restaurant
+        self.data.menu.append(data)
+    }
+    
+    
 }

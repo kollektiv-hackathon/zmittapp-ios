@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class detailViewController: UIViewController {
     
-    var restaurant : [String:AnyObject]!
+    // will be set from mainViewController
+    var restaurant : Restaurant!
     
+    // IBOutlets
     @IBOutlet weak var _lokalName: UILabel!
     @IBOutlet weak var _lokalEmail: UILabel!
     @IBOutlet weak var _lokalPhone: UILabel!
@@ -25,13 +28,67 @@ class detailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self._lokalName.text = restaurant["name"] as? String
-        self._lokalEmail.text = restaurant["email"] as? String
-        self._lokalPhone.text = restaurant["phone"] as? String
-        self._lokalLat.text = restaurant["lat"] as? String
-        self._lokalLng.text = restaurant["lon"] as? String
+        // setup view before requesting menu data
+        self.setupView()
         
-        println(restaurant["lon"])
+        // get all menus for current restaurant
+        Alamofire.request(.GET, Router.menuItems(self.restaurant.data.id))
+            .responseJSON { (_, _, JSON, _) in
+                
+                if let jsonResponse = JSON as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
+                    
+                    // loop through response
+                    for menu in jsonResponse {
+                        
+                        self.addMenu(menu)
+                        
+                        
+                    }
+                } else if let jsonResponse = JSON as? [String: AnyObject] { // single restaurant as response
+                    
+                    self.addMenu(jsonResponse)
+                    
+                }else{
+                    
+                    // data not correct format
+                    println("requested data could not be formatted")
+                    
+                }
+                
+        };
+        
+    }
+    
+    // handle api response
+    func addMenu(menu: [String:AnyObject]) {
+        
+        // prepare struct with supplied data
+        var newData = menuData(
+            id:             menu["id"] as Int,
+            appetizer:      menu["appetizer"] as String,
+            main_course:    menu["main_course"] as String,
+            desert:         menu["desert"] as String,
+            price:          menu["price"] as Double,
+            date:           menu["date"] as String,
+            vegetarian:     menu["vegetarian"] as Bool,
+            vegan:          menu["vegan"] as Bool
+        )
+
+        // append menu to Restaurant instance
+        self.restaurant.addMenu( newData )
+        
+    }
+    
+    func setupView(){
+        
+        // set restaurant data
+        self._lokalName.text = self.restaurant.data.name
+        self._lokalEmail.text = restaurant.data.email
+        self._lokalPhone.text = restaurant.data.phone
+        self._lokalLat.text = String(format:"%f", restaurant.data.lat)
+        self._lokalLng.text = String(format:"%f", restaurant.data.lng)
+        
+        self.navigationItem.title = self.restaurant.data.name
         
     }
     
