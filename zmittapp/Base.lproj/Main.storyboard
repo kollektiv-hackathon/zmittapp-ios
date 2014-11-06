@@ -8,30 +8,19 @@
         <scene sceneID="Mw1-KL-oK8">
             <objects>
                 <tableViewController title="Alle Lokale" id="Oeu-fI-W7j" customClass="mainTableViewController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="InN-x1-tRc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="InN-x1-tRc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="restaurantCell" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="restaurantCell" textLabel="0Wq-ht-jWA" detailTextLabel="mB9-u8-LwM" style="IBUITableViewCellStyleSubtitle" id="qZm-0O-Mfd">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="restaurantCell" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="restaurantCell" id="qZm-0O-Mfd" customClass="customTableViewCell" customModule="zmittapp" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qZm-0O-Mfd" id="Zu8-Yl-9Te">
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Wq-ht-jWA">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mB9-u8-LwM">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -39,7 +28,7 @@
                             <outlet property="delegate" destination="Oeu-fI-W7j" id="n1A-BV-oLK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Alle Lokale" id="6AU-Eg-zjS"/>
+                    <navigationItem key="navigationItem" title="ALLE" id="6AU-Eg-zjS"/>
                     <connections>
                         <outlet property="_overviewTable" destination="InN-x1-tRc" id="l3k-iM-Efn"/>
                     </connections>
@@ -111,14 +100,18 @@
             </objects>
             <point key="canvasLocation" x="2122" y="-367"/>
         </scene>
-        <!--Alle Lokale-->
+        <!--ALLE-->
         <scene sceneID="Hww-4l-gSz">
             <objects>
                 <navigationController id="75J-Aw-623" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alle Lokale" image="first" id="sfK-qG-srz"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p8f-4c-XQo">
+                    <tabBarItem key="tabBarItem" title="ALLE" image="first" id="sfK-qG-srz"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="p8f-4c-XQo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14509803921568629" green="0.12156862745098039" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Oeu-fI-W7j" kind="relationship" relationship="rootViewController" id="HJA-IX-a5a"/>
@@ -168,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Root Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="rootTabBarController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>

@@ -16,10 +16,22 @@ class mainTableViewController: UITableViewController, UITableViewDelegate, UITab
 
     @IBOutlet var _overviewTable: UITableView!
     
+    
     override func viewDidLoad() {
         
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
+        
+        // clear background color
+        self.view.backgroundColor = UIColor.clearColor()
+        self._overviewTable.separatorColor = UIColor.clearColor()
+        
+        self._overviewTable.separatorInset = UIEdgeInsetsZero
+        
+        /*CGRect tableRect = self.view.frame;
+        tableRect.origin.x += tableBorderLeft; // make the table begin a few pixels right from its origin
+        tableRect.size.width -= tableBorderLeft + tableBorderRight; // reduce the width of the table
+        tableView.frame = tableRect;*/
         
         // get all restaurants
         Alamofire.request(.GET, Router.restaurants)
@@ -89,9 +101,25 @@ class mainTableViewController: UITableViewController, UITableViewDelegate, UITab
         // create cell
         let cell: UITableViewCell = _overviewTable.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as UITableViewCell
         
+        
+        var mainLabel = UILabel(frame: CGRectMake(0, 10, cell.frame.width, cell.frame.height / 2))
+        cell.contentView.addSubview(mainLabel)
+        mainLabel.text = self.restaurants[indexPath.row].data.name
+        mainLabel.font = UIFont(name: "Brandon Grotesque", size: 33)
+        mainLabel.textColor = UIColor(red: 1/255*50, green: 1/255*42, blue: 1/255*39, alpha: 1)
+        
+        var smallLabel = UILabel(frame: CGRectMake(0, cell.frame.height/2 - 5, cell.frame.width, cell.frame.height / 2))
+        cell.contentView.addSubview(smallLabel)
+        smallLabel.text = "Schiffbaustrasse 10, 8035 Zürich"//self.restaurants[indexPath.row].data.email
+        smallLabel.font = UIFont(name: "BrandonGrotesque-RegularItalic", size: 17)
+        smallLabel.textColor = UIColor(red: 1/255*50, green: 1/255*42, blue: 1/255*39, alpha: 1)
+
+        
         // set cell label text
-        cell.textLabel.text = self.restaurants[indexPath.row].data.name
-        cell.detailTextLabel?.text = self.restaurants[indexPath.row].data.email
+        //cell.textLabel.text = self.restaurants[indexPath.row].data.name
+        //cell.detailTextLabel?.text = self.restaurants[indexPath.row].data.email
+        
+        // set table view cell style
         
         return cell
     }
@@ -106,6 +134,7 @@ class mainTableViewController: UITableViewController, UITableViewDelegate, UITab
         
         // navigate to new controller
         self.navigationController?.pushViewController(controller, animated: true)
+        
         
     }
     

@@ -9,6 +9,21 @@
 /* Begin PBXBuildFile section */
 		887D0E781A093E0300E3837B /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E771A093E0300E3837B /* detailViewController.swift */; };
 		887D0E7A1A0A137200E3837B /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E791A0A137200E3837B /* Restaurant.swift */; };
+		887D0E7C1A0BB82A00E3837B /* rootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E7B1A0BB82A00E3837B /* rootViewController.swift */; };
+		887D0E8B1A0BBF4F00E3837B /* rootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E8A1A0BBF4F00E3837B /* rootTabBarController.swift */; };
+		887D0E8D1A0BC6F000E3837B /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E8C1A0BC6F000E3837B /* customTableViewCell.swift */; };
+		887D0E8E1A0BE19900E3837B /* Brandon_bld_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E7E1A0BBC9400E3837B /* Brandon_bld_it.otf */; };
+		887D0E8F1A0BE19900E3837B /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E7F1A0BBC9400E3837B /* Brandon_bld.otf */; };
+		887D0E901A0BE19900E3837B /* Brandon_blk_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E801A0BBC9400E3837B /* Brandon_blk_it.otf */; };
+		887D0E911A0BE19900E3837B /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E811A0BBC9400E3837B /* Brandon_blk.otf */; };
+		887D0E921A0BE19900E3837B /* Brandon_light_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E821A0BBC9400E3837B /* Brandon_light_it.otf */; };
+		887D0E931A0BE19900E3837B /* Brandon_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E831A0BBC9400E3837B /* Brandon_light.otf */; };
+		887D0E941A0BE19900E3837B /* Brandon_med_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E841A0BBC9400E3837B /* Brandon_med_it.otf */; };
+		887D0E951A0BE19900E3837B /* Brandon_med.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E851A0BBC9400E3837B /* Brandon_med.otf */; };
+		887D0E961A0BE19900E3837B /* Brandon_reg_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E861A0BBC9400E3837B /* Brandon_reg_it.otf */; };
+		887D0E971A0BE19900E3837B /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E871A0BBC9400E3837B /* Brandon_reg.otf */; };
+		887D0E981A0BE19900E3837B /* Brandon_thin_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E881A0BBC9400E3837B /* Brandon_thin_it.otf */; };
+		887D0E991A0BE19900E3837B /* Brandon_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E891A0BBC9400E3837B /* Brandon_thin.otf */; };
 		88E6B8521A077228009F962E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8511A077228009F962E /* AppDelegate.swift */; };
 		88E6B8541A077228009F962E /* mainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* mainTableViewController.swift */; };
 		88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8551A077228009F962E /* nearbyViewController.swift */; };
@@ -76,6 +91,21 @@
 /* Begin PBXFileReference section */
 		887D0E771A093E0300E3837B /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 		887D0E791A0A137200E3837B /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		887D0E7B1A0BB82A00E3837B /* rootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootViewController.swift; sourceTree = "<group>"; };
+		887D0E7E1A0BBC9400E3837B /* Brandon_bld_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld_it.otf; sourceTree = "<group>"; };
+		887D0E7F1A0BBC9400E3837B /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
+		887D0E801A0BBC9400E3837B /* Brandon_blk_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk_it.otf; sourceTree = "<group>"; };
+		887D0E811A0BBC9400E3837B /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
+		887D0E821A0BBC9400E3837B /* Brandon_light_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light_it.otf; sourceTree = "<group>"; };
+		887D0E831A0BBC9400E3837B /* Brandon_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light.otf; sourceTree = "<group>"; };
+		887D0E841A0BBC9400E3837B /* Brandon_med_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_med_it.otf; sourceTree = "<group>"; };
+		887D0E851A0BBC9400E3837B /* Brandon_med.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_med.otf; sourceTree = "<group>"; };
+		887D0E861A0BBC9400E3837B /* Brandon_reg_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg_it.otf; sourceTree = "<group>"; };
+		887D0E871A0BBC9400E3837B /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
+		887D0E881A0BBC9400E3837B /* Brandon_thin_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_thin_it.otf; sourceTree = "<group>"; };
+		887D0E891A0BBC9400E3837B /* Brandon_thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_thin.otf; sourceTree = "<group>"; };
+		887D0E8A1A0BBF4F00E3837B /* rootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootTabBarController.swift; sourceTree = "<group>"; };
+		887D0E8C1A0BC6F000E3837B /* customTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
 		88E6B84C1A077228009F962E /* zmittapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmittapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8501A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E6B8511A077228009F962E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +140,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		887D0E7D1A0BBC7D00E3837B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				887D0E7E1A0BBC9400E3837B /* Brandon_bld_it.otf */,
+				887D0E7F1A0BBC9400E3837B /* Brandon_bld.otf */,
+				887D0E801A0BBC9400E3837B /* Brandon_blk_it.otf */,
+				887D0E811A0BBC9400E3837B /* Brandon_blk.otf */,
+				887D0E821A0BBC9400E3837B /* Brandon_light_it.otf */,
+				887D0E831A0BBC9400E3837B /* Brandon_light.otf */,
+				887D0E841A0BBC9400E3837B /* Brandon_med_it.otf */,
+				887D0E851A0BBC9400E3837B /* Brandon_med.otf */,
+				887D0E861A0BBC9400E3837B /* Brandon_reg_it.otf */,
+				887D0E871A0BBC9400E3837B /* Brandon_reg.otf */,
+				887D0E881A0BBC9400E3837B /* Brandon_thin_it.otf */,
+				887D0E891A0BBC9400E3837B /* Brandon_thin.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		88E6B8431A077227009F962E = {
 			isa = PBXGroup;
 			children = (
@@ -135,12 +184,16 @@
 				88E6B8871A07BE09009F962E /* router.swift */,
 				887D0E791A0A137200E3837B /* Restaurant.swift */,
 				88E6B8511A077228009F962E /* AppDelegate.swift */,
+				887D0E7B1A0BB82A00E3837B /* rootViewController.swift */,
+				887D0E8C1A0BC6F000E3837B /* customTableViewCell.swift */,
 				88E6B8531A077228009F962E /* mainTableViewController.swift */,
 				887D0E771A093E0300E3837B /* detailViewController.swift */,
 				88E6B8551A077228009F962E /* nearbyViewController.swift */,
+				887D0E8A1A0BBF4F00E3837B /* rootTabBarController.swift */,
 				88E6B8571A077228009F962E /* Main.storyboard */,
 				88E6B85A1A077228009F962E /* Images.xcassets */,
 				88E6B85C1A077228009F962E /* LaunchScreen.xib */,
+				887D0E7D1A0BBC7D00E3837B /* Fonts */,
 				88E6B84F1A077228009F962E /* Supporting Files */,
 			);
 			path = zmittapp;
@@ -287,6 +340,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				887D0E8E1A0BE19900E3837B /* Brandon_bld_it.otf in Resources */,
+				887D0E8F1A0BE19900E3837B /* Brandon_bld.otf in Resources */,
+				887D0E901A0BE19900E3837B /* Brandon_blk_it.otf in Resources */,
+				887D0E911A0BE19900E3837B /* Brandon_blk.otf in Resources */,
+				887D0E921A0BE19900E3837B /* Brandon_light_it.otf in Resources */,
+				887D0E931A0BE19900E3837B /* Brandon_light.otf in Resources */,
+				887D0E941A0BE19900E3837B /* Brandon_med_it.otf in Resources */,
+				887D0E951A0BE19900E3837B /* Brandon_med.otf in Resources */,
+				887D0E961A0BE19900E3837B /* Brandon_reg_it.otf in Resources */,
+				887D0E971A0BE19900E3837B /* Brandon_reg.otf in Resources */,
+				887D0E981A0BE19900E3837B /* Brandon_thin_it.otf in Resources */,
+				887D0E991A0BE19900E3837B /* Brandon_thin.otf in Resources */,
 				88E6B8591A077228009F962E /* Main.storyboard in Resources */,
 				88E6B85E1A077228009F962E /* LaunchScreen.xib in Resources */,
 				88E6B85B1A077228009F962E /* Images.xcassets in Resources */,
@@ -308,10 +373,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				887D0E7A1A0A137200E3837B /* Restaurant.swift in Sources */,
+				887D0E8B1A0BBF4F00E3837B /* rootTabBarController.swift in Sources */,
 				88E6B8881A07BE09009F962E /* router.swift in Sources */,
 				88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */,
+				887D0E8D1A0BC6F000E3837B /* customTableViewCell.swift in Sources */,
 				88E6B8521A077228009F962E /* AppDelegate.swift in Sources */,
 				88E6B8541A077228009F962E /* mainTableViewController.swift in Sources */,
+				887D0E7C1A0BB82A00E3837B /* rootViewController.swift in Sources */,
 				887D0E781A093E0300E3837B /* detailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,5 +44,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Brandon_reg.otf</string>
+		<string>Brandon_reg_it.otf</string>
+	</array>
 </dict>
 </plist>
