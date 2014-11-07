@@ -11,8 +11,10 @@ import UIKit
 class customTableViewCell: UITableViewCell{
     
     // cell bg images
-    let cellBg = UIImageView(image: UIImage(named: "cell"))
-    let cellBgActive = UIImageView(image: UIImage(named: "cellActive"))
+    var cellBg = UIImageView(image: UIImage(named: "cell"))
+    var cellBgActive = UIImageView(image: UIImage(named: "cellActive"))
+    
+    let test: UIImageView!
     
     // font colour
     let fontColour = UIColor(red: 1/255*50, green: 1/255*42, blue: 1/255*39, alpha: 1)
@@ -26,6 +28,12 @@ class customTableViewCell: UITableViewCell{
     
     // holds bool => true if subview content was already registered
     var subViewRegistered = false
+    
+    // sets left and right inset
+    let inset = 35
+    
+    // set cell height
+    let cellHeight = 80
 
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -38,23 +46,20 @@ class customTableViewCell: UITableViewCell{
         // initially set bg
         self.setBg(false)
         
-        // set custom accessoryView
-        var curlyBraces = UIImageView(image: UIImage(named: "curly"))
-        self.accessoryView = curlyBraces
+        // remove accessory type
+        self.accessoryType = UITableViewCellAccessoryType.None
 
     }
     
     override func layoutSubviews() {
-        
-        var inset = CGFloat(35)
         
         // only set newBounds if not already set before
         if(self.newBounds == nil){
             
             self.newBounds = CGRectMake(self.bounds.origin.x,
                                         self.bounds.origin.y,
-                                        self.bounds.size.width - inset * 2,
-                                        self.bounds.size.height)
+                                        self.bounds.size.width - CGFloat(self.inset * 2),
+                                        CGFloat(self.cellHeight))
   
         }
         
@@ -78,30 +83,58 @@ class customTableViewCell: UITableViewCell{
     // sets the background image of the cell depending on it's state
     func setBg(highlight: Bool) {
         if(highlight){
-            self.backgroundColor = UIColor.clearColor()
-            self.backgroundView = self.cellBgActive
+
+            //self.backgroundColor = UIColor.blackColor()
+            //self.backgroundView = self.cellBgActive
         }else{
-            self.backgroundColor = UIColor.clearColor()
-            self.backgroundView = cellBg
+            //self.backgroundColor = UIColor.clearColor()
+            //self.backgroundView = cellBg
         }
     }
     
     // register the the subviews for this cell
     func registerSubviewContent() {
         
-        // determine positions
+        // define labels
+        //
         self.mainLabel = UILabel(frame: CGRectMake(0, 10, self.frame.width, self.frame.height / 2))
         self.smallLabel = UILabel(frame: CGRectMake(0, self.frame.height/2 - 5, self.frame.width, self.frame.height / 2))
         
         // set font and colour
         self.mainLabel.font = UIFont(name: "Brandon Grotesque", size: 26)
-        self.smallLabel.font = UIFont(name: "BrandonGrotesque-RegularItalic", size: 17)
+        self.smallLabel.font = UIFont(name: "BrandonGrotesque-RegularItalic", size: 16)
         self.mainLabel.textColor = self.fontColour
         self.smallLabel.textColor = self.fontColour
         
         // add labels to contentView
         self.contentView.addSubview(self.mainLabel)
         self.contentView.addSubview(self.smallLabel)
+        
+        // define curly brackets
+        //
+        var curlyBraces = UIImageView(image: UIImage(named: "curly"))
+        curlyBraces.frame.origin.x = self.bounds.width - curlyBraces.bounds.width - CGFloat(self.inset * 2)
+        curlyBraces.frame.origin.y = self.bounds.height / 2 - curlyBraces.bounds.height / 2
+        
+        // add curly bracket to contentView
+        self.contentView.addSubview(curlyBraces)
+        
+        // define separator line
+        //
+        var separatorLine = UIImageView(image: UIImage(named: "separatorLine"))
+        
+        // calculate new size and keep ratio
+        var newSeparatorWidth = self.bounds.width - CGFloat(self.inset * 2)
+        var newSeparatorHeight = separatorLine.bounds.height / (separatorLine.frame.width / newSeparatorWidth)
+        
+        separatorLine.frame.origin.y = self.bounds.height - separatorLine.bounds.height / 2
+        
+        separatorLine.frame.size.width = newSeparatorWidth
+        separatorLine.frame.size.height = newSeparatorHeight
+        
+        // add separator line to sub view
+        self.contentView.addSubview(separatorLine)
+        
         
         self.subViewRegistered = true
     }
