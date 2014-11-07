@@ -78,7 +78,7 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
             menu:   [menuData]()
         )
         
-        // instanciate new Restaurant with fetched data
+        // instantiate new Restaurant with fetched data
         var newRest: Restaurant = Restaurant(data: newData)
         
         // append newly fetched restaurant to instance variable

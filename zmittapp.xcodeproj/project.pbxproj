@@ -24,11 +24,11 @@
 		887D0E971A0BE19900E3837B /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E871A0BBC9400E3837B /* Brandon_reg.otf */; };
 		887D0E981A0BE19900E3837B /* Brandon_thin_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E881A0BBC9400E3837B /* Brandon_thin_it.otf */; };
 		887D0E991A0BE19900E3837B /* Brandon_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E891A0BBC9400E3837B /* Brandon_thin.otf */; };
+		887D0E9D1A0D2BA700E3837B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E9C1A0D2BA700E3837B /* Images.xcassets */; };
 		88E6B8521A077228009F962E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8511A077228009F962E /* AppDelegate.swift */; };
 		88E6B8541A077228009F962E /* allRestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* allRestaurantsViewController.swift */; };
 		88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8551A077228009F962E /* nearbyViewController.swift */; };
 		88E6B8591A077228009F962E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B8571A077228009F962E /* Main.storyboard */; };
-		88E6B85B1A077228009F962E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B85A1A077228009F962E /* Images.xcassets */; };
 		88E6B85E1A077228009F962E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B85C1A077228009F962E /* LaunchScreen.xib */; };
 		88E6B86A1A077228009F962E /* zmittappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8691A077228009F962E /* zmittappTests.swift */; };
 		88E6B8821A07B6D8009F962E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E6B87D1A07B554009F962E /* Alamofire.framework */; };
@@ -106,13 +106,13 @@
 		887D0E891A0BBC9400E3837B /* Brandon_thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_thin.otf; sourceTree = "<group>"; };
 		887D0E8A1A0BBF4F00E3837B /* rootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootTabBarController.swift; sourceTree = "<group>"; };
 		887D0E8C1A0BC6F000E3837B /* customTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
+		887D0E9C1A0D2BA700E3837B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		88E6B84C1A077228009F962E /* zmittapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmittapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8501A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E6B8511A077228009F962E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88E6B8531A077228009F962E /* allRestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allRestaurantsViewController.swift; sourceTree = "<group>"; };
 		88E6B8551A077228009F962E /* nearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyViewController.swift; sourceTree = "<group>"; };
 		88E6B8581A077228009F962E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		88E6B85A1A077228009F962E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		88E6B85D1A077228009F962E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		88E6B8631A077228009F962E /* zmittappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zmittappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8681A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 				88E6B8551A077228009F962E /* nearbyViewController.swift */,
 				887D0E8A1A0BBF4F00E3837B /* rootTabBarController.swift */,
 				88E6B8571A077228009F962E /* Main.storyboard */,
-				88E6B85A1A077228009F962E /* Images.xcassets */,
+				887D0E9C1A0D2BA700E3837B /* Images.xcassets */,
 				88E6B85C1A077228009F962E /* LaunchScreen.xib */,
 				887D0E7D1A0BBC7D00E3837B /* Fonts */,
 				88E6B84F1A077228009F962E /* Supporting Files */,
@@ -346,6 +346,7 @@
 				887D0E911A0BE19900E3837B /* Brandon_blk.otf in Resources */,
 				887D0E921A0BE19900E3837B /* Brandon_light_it.otf in Resources */,
 				887D0E931A0BE19900E3837B /* Brandon_light.otf in Resources */,
+				887D0E9D1A0D2BA700E3837B /* Images.xcassets in Resources */,
 				887D0E941A0BE19900E3837B /* Brandon_med_it.otf in Resources */,
 				887D0E951A0BE19900E3837B /* Brandon_med.otf in Resources */,
 				887D0E961A0BE19900E3837B /* Brandon_reg_it.otf in Resources */,
@@ -354,7 +355,6 @@
 				887D0E991A0BE19900E3837B /* Brandon_thin.otf in Resources */,
 				88E6B8591A077228009F962E /* Main.storyboard in Resources */,
 				88E6B85E1A077228009F962E /* LaunchScreen.xib in Resources */,
-				88E6B85B1A077228009F962E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = zmittapp/Info.plist;
@@ -526,6 +527,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = zmittapp/Info.plist;
