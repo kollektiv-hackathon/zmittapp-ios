@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class mainTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class allRestaurantsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
     // will contain all restaurants for this view
     var restaurants = [Restaurant]()
@@ -99,27 +99,8 @@ class mainTableViewController: UITableViewController, UITableViewDelegate, UITab
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // create cell
-        let cell: UITableViewCell = _overviewTable.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as UITableViewCell
-        
-        
-        var mainLabel = UILabel(frame: CGRectMake(0, 10, cell.frame.width, cell.frame.height / 2))
-        cell.contentView.addSubview(mainLabel)
-        mainLabel.text = self.restaurants[indexPath.row].data.name
-        mainLabel.font = UIFont(name: "Brandon Grotesque", size: 33)
-        mainLabel.textColor = UIColor(red: 1/255*50, green: 1/255*42, blue: 1/255*39, alpha: 1)
-        
-        var smallLabel = UILabel(frame: CGRectMake(0, cell.frame.height/2 - 5, cell.frame.width, cell.frame.height / 2))
-        cell.contentView.addSubview(smallLabel)
-        smallLabel.text = "Schiffbaustrasse 10, 8035 Zürich"//self.restaurants[indexPath.row].data.email
-        smallLabel.font = UIFont(name: "BrandonGrotesque-RegularItalic", size: 17)
-        smallLabel.textColor = UIColor(red: 1/255*50, green: 1/255*42, blue: 1/255*39, alpha: 1)
-
-        
-        // set cell label text
-        //cell.textLabel.text = self.restaurants[indexPath.row].data.name
-        //cell.detailTextLabel?.text = self.restaurants[indexPath.row].data.email
-        
-        // set table view cell style
+        var cell: customTableViewCell = _overviewTable.dequeueReusableCellWithIdentifier("restaurantCell", forIndexPath: indexPath) as customTableViewCell
+        //cell.registerSubviewContent()
         
         return cell
     }
@@ -135,8 +116,20 @@ class mainTableViewController: UITableViewController, UITableViewDelegate, UITab
         // navigate to new controller
         self.navigationController?.pushViewController(controller, animated: true)
         
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var customCell = cell as customTableViewCell
+        
+        if(!customCell.subViewRegistered){
+            customCell.registerSubviewContent()
+        }
+        
+        customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
         
     }
+    
     
     //
     // memory

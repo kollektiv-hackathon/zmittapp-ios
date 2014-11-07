@@ -10,10 +10,22 @@ import UIKit
 
 class customTableViewCell: UITableViewCell{
     
+    // cell bg images
     let cellBg = UIImageView(image: UIImage(named: "cell"))
     let cellBgActive = UIImageView(image: UIImage(named: "cellActive"))
     
+    // font colour
+    let fontColour = UIColor(red: 1/255*50, green: 1/255*42, blue: 1/255*39, alpha: 1)
+    
+    // subview content
+    var mainLabel: UILabel!
+    var smallLabel: UILabel!
+    
+    // cell size and position
     var newBounds: CGRect!
+    
+    // holds bool => true if subview content was already registered
+    var subViewRegistered = false
 
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -46,12 +58,11 @@ class customTableViewCell: UITableViewCell{
   
         }
         
-
-        
         self.bounds = self.newBounds
         
-
+        
         super.layoutSubviews()
+
  
     }
 
@@ -64,7 +75,8 @@ class customTableViewCell: UITableViewCell{
 
     }
     
-    func setBg(highlight: Bool){
+    // sets the background image of the cell depending on it's state
+    func setBg(highlight: Bool) {
         if(highlight){
             self.backgroundColor = UIColor.clearColor()
             self.backgroundView = self.cellBgActive
@@ -72,6 +84,32 @@ class customTableViewCell: UITableViewCell{
             self.backgroundColor = UIColor.clearColor()
             self.backgroundView = cellBg
         }
+    }
+    
+    // register the the subviews for this cell
+    func registerSubviewContent() {
+        
+        // determine positions
+        self.mainLabel = UILabel(frame: CGRectMake(0, 10, self.frame.width, self.frame.height / 2))
+        self.smallLabel = UILabel(frame: CGRectMake(0, self.frame.height/2 - 5, self.frame.width, self.frame.height / 2))
+        
+        // set font and colour
+        self.mainLabel.font = UIFont(name: "Brandon Grotesque", size: 26)
+        self.smallLabel.font = UIFont(name: "BrandonGrotesque-RegularItalic", size: 17)
+        self.mainLabel.textColor = self.fontColour
+        self.smallLabel.textColor = self.fontColour
+        
+        // add labels to contentView
+        self.contentView.addSubview(self.mainLabel)
+        self.contentView.addSubview(self.smallLabel)
+        
+        self.subViewRegistered = true
+    }
+    
+    // set the label text and add label to subview
+    func setContent(mainLabelText: String, smallLabelText: String) {
+        self.mainLabel.text = mainLabelText
+        self.smallLabel.text = smallLabelText
     }
 }
 

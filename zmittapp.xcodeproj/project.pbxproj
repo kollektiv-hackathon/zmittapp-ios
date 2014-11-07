@@ -25,7 +25,7 @@
 		887D0E981A0BE19900E3837B /* Brandon_thin_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E881A0BBC9400E3837B /* Brandon_thin_it.otf */; };
 		887D0E991A0BE19900E3837B /* Brandon_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E891A0BBC9400E3837B /* Brandon_thin.otf */; };
 		88E6B8521A077228009F962E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8511A077228009F962E /* AppDelegate.swift */; };
-		88E6B8541A077228009F962E /* mainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* mainTableViewController.swift */; };
+		88E6B8541A077228009F962E /* allRestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* allRestaurantsViewController.swift */; };
 		88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8551A077228009F962E /* nearbyViewController.swift */; };
 		88E6B8591A077228009F962E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B8571A077228009F962E /* Main.storyboard */; };
 		88E6B85B1A077228009F962E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E6B85A1A077228009F962E /* Images.xcassets */; };
@@ -109,7 +109,7 @@
 		88E6B84C1A077228009F962E /* zmittapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmittapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8501A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E6B8511A077228009F962E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88E6B8531A077228009F962E /* mainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainTableViewController.swift; sourceTree = "<group>"; };
+		88E6B8531A077228009F962E /* allRestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allRestaurantsViewController.swift; sourceTree = "<group>"; };
 		88E6B8551A077228009F962E /* nearbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyViewController.swift; sourceTree = "<group>"; };
 		88E6B8581A077228009F962E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88E6B85A1A077228009F962E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 				88E6B8511A077228009F962E /* AppDelegate.swift */,
 				887D0E7B1A0BB82A00E3837B /* rootViewController.swift */,
 				887D0E8C1A0BC6F000E3837B /* customTableViewCell.swift */,
-				88E6B8531A077228009F962E /* mainTableViewController.swift */,
+				88E6B8531A077228009F962E /* allRestaurantsViewController.swift */,
 				887D0E771A093E0300E3837B /* detailViewController.swift */,
 				88E6B8551A077228009F962E /* nearbyViewController.swift */,
 				887D0E8A1A0BBF4F00E3837B /* rootTabBarController.swift */,
@@ -378,7 +378,7 @@
 				88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */,
 				887D0E8D1A0BC6F000E3837B /* customTableViewCell.swift in Sources */,
 				88E6B8521A077228009F962E /* AppDelegate.swift in Sources */,
-				88E6B8541A077228009F962E /* mainTableViewController.swift in Sources */,
+				88E6B8541A077228009F962E /* allRestaurantsViewController.swift in Sources */,
 				887D0E7C1A0BB82A00E3837B /* rootViewController.swift in Sources */,
 				887D0E781A093E0300E3837B /* detailViewController.swift in Sources */,
 			);
