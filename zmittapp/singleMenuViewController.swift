@@ -24,7 +24,7 @@ class singleMenuViewController: UIViewController {
         self.name.text = self.restaurant.data.name
         
         // setup background
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+        self.view.backgroundColor = UIColor.clearColor()
         
     }
     

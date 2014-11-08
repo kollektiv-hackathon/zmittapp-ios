@@ -51,31 +51,45 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         // get all subscribed restaurants
         Alamofire.request(.GET, Router.userSubscriptions(id))
             
-            .responseJSON { (_, _, JSON, _) in
+            .responseJSON { (_, response, JSON, error) in
                 
-                if let jsonResponse = JSON as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
+                if response?.statusCode == 404 {
                     
-                    // loop through response
-                    for restaurant in jsonResponse {
+                    Alamofire.request(.POST, Router.createUser, parameters: ["user[uid]": id])
+                        .responseJSON { (request, response, JSON, error) in
+                            
+                            println(request)
+                    };
+                    
+                    println("no user available")
+
+                }else{
+                    
+                    if let jsonResponse = JSON as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
                         
-                        self.addRestaurant(restaurant)
+                        // loop through response
+                        for restaurant in jsonResponse {
+                            
+                            self.addRestaurant(restaurant)
+                            
+                            
+                        }
                         
+                    } else if let jsonResponse = JSON as? [String: AnyObject] { // single restaurant as response
+                        
+                        self.addRestaurant(jsonResponse)
+                        
+                    }else{
+                        
+                        // data not correct format
+                        println("requested data could not be formatted")
                         
                     }
                     
-                } else if let jsonResponse = JSON as? [String: AnyObject] { // single restaurant as response
-                    
-                    self.addRestaurant(jsonResponse)
-                    
-                }else{
-                    
-                    // data not correct format
-                    println("requested data could not be formatted")
+                    // get menus for restaurants
+                    self.getAllMenus()
                     
                 }
-                
-                // get menus for restaurants
-                self.getAllMenus()
                 
         };
 
@@ -139,6 +153,8 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     // handle api response
     func addRestaurant(restaurant: [String:AnyObject]) {
+        
+        println(restaurant)
         
         // prepare struct with supplied data
         var newData = restaurantData(

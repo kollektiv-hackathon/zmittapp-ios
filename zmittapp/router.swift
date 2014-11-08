@@ -18,6 +18,8 @@ enum Router: URLStringConvertible {
     case menuItems(Int)
     case menuItem(Int, Int)
     case userSubscriptions(String)
+    case createUser
+
     
     var URLString: String {
         let path: String = {
@@ -34,6 +36,8 @@ enum Router: URLStringConvertible {
                 return "user/\(userId)/subscriptions"
             case .menuItem(let restaurantId, let menuId):
                 return "restaurants/\(restaurantId)/menuitems/\(menuId)"
+            case .createUser(let userId):
+                return "user/"
             default:
                 return ""
             }
