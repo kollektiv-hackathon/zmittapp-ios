@@ -26,6 +26,7 @@
 		887D0E991A0BE19900E3837B /* Brandon_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E891A0BBC9400E3837B /* Brandon_thin.otf */; };
 		887D0E9D1A0D2BA700E3837B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 887D0E9C1A0D2BA700E3837B /* Images.xcassets */; };
 		887D0EA01A0E5F4E00E3837B /* dailymenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0E9F1A0E5F4E00E3837B /* dailymenuViewController.swift */; };
+		887D0EA51A0E6EA200E3837B /* singleMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887D0EA41A0E6EA200E3837B /* singleMenuViewController.swift */; };
 		88E6B8521A077228009F962E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8511A077228009F962E /* AppDelegate.swift */; };
 		88E6B8541A077228009F962E /* allRestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8531A077228009F962E /* allRestaurantsViewController.swift */; };
 		88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8551A077228009F962E /* nearbyViewController.swift */; };
@@ -109,6 +110,7 @@
 		887D0E8C1A0BC6F000E3837B /* customTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
 		887D0E9C1A0D2BA700E3837B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		887D0E9F1A0E5F4E00E3837B /* dailymenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dailymenuViewController.swift; sourceTree = "<group>"; };
+		887D0EA41A0E6EA200E3837B /* singleMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = singleMenuViewController.swift; sourceTree = "<group>"; };
 		88E6B84C1A077228009F962E /* zmittapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zmittapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E6B8501A077228009F962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88E6B8511A077228009F962E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,15 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		887D0EA61A0E6F2C00E3837B /* Heutige Menüs */ = {
+			isa = PBXGroup;
+			children = (
+				887D0E9F1A0E5F4E00E3837B /* dailymenuViewController.swift */,
+				887D0EA41A0E6EA200E3837B /* singleMenuViewController.swift */,
+			);
+			name = "Heutige Menüs";
+			sourceTree = "<group>";
+		};
 		88E6B8431A077227009F962E = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +197,7 @@
 				88E6B8871A07BE09009F962E /* router.swift */,
 				887D0E791A0A137200E3837B /* Restaurant.swift */,
 				88E6B8511A077228009F962E /* AppDelegate.swift */,
-				887D0E9F1A0E5F4E00E3837B /* dailymenuViewController.swift */,
+				887D0EA61A0E6F2C00E3837B /* Heutige Menüs */,
 				887D0E7B1A0BB82A00E3837B /* rootViewController.swift */,
 				887D0E8C1A0BC6F000E3837B /* customTableViewCell.swift */,
 				88E6B8531A077228009F962E /* allRestaurantsViewController.swift */,
@@ -376,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				887D0E7A1A0A137200E3837B /* Restaurant.swift in Sources */,
+				887D0EA51A0E6EA200E3837B /* singleMenuViewController.swift in Sources */,
 				887D0E8B1A0BBF4F00E3837B /* rootTabBarController.swift in Sources */,
 				88E6B8881A07BE09009F962E /* router.swift in Sources */,
 				88E6B8561A077228009F962E /* nearbyViewController.swift in Sources */,

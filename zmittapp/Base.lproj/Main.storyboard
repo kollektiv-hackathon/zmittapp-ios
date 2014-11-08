@@ -4,6 +4,35 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
+        <!--Single Menu View Controller-->
+        <scene sceneID="u05-Ll-15O">
+            <objects>
+                <viewController storyboardIdentifier="singleMenuView" id="hFm-fn-dei" customClass="singleMenuViewController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a6u-jI-9Cx"/>
+                        <viewControllerLayoutGuide type="bottom" id="6tP-QX-5Q0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5em-Tg-zwC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1er-wA-le6">
+                                <rect key="frame" x="16" y="289" width="93" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="name" destination="1er-wA-le6" id="8j3-QL-7QM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3zM-tj-RE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1518" y="-1035"/>
+        </scene>
         <!--Alle Lokale-->
         <scene sceneID="Mw1-KL-oK8">
             <objects>
@@ -152,14 +181,33 @@
             <point key="canvasLocation" x="323" y="348"/>
         </scene>
         <!--Heutige Menüs-->
+        <scene sceneID="Zh7-W7-DO4">
+            <objects>
+                <viewController id="maR-ni-JZP" customClass="dailymenuViewController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wCf-PL-0uc"/>
+                        <viewControllerLayoutGuide type="bottom" id="q7j-RQ-zEz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mJD-w6-rGb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Heutige Menüs" id="N8v-U1-Njt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cll-eo-jlt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="24" y="-1035"/>
+        </scene>
+        <!--Heutige Menüs-->
         <scene sceneID="7Dh-oS-Eba">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="VJR-Fo-ZUn" sceneMemberID="viewController">
+                <pageViewController restorationIdentifier="PageViewController" storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="VJR-Fo-ZUn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Heutige Menüs" id="3Pg-Bz-6Qq"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7O-zm-unA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="269" y="-1003"/>
+            <point key="canvasLocation" x="812" y="-1035"/>
         </scene>
         <!--Root Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -172,14 +220,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="VJR-Fo-ZUn" kind="relationship" relationship="viewControllers" id="8mE-6B-FJH"/>
+                        <segue destination="maR-ni-JZP" kind="relationship" relationship="viewControllers" id="pmh-WN-dM6"/>
                         <segue destination="75J-Aw-623" kind="relationship" relationship="viewControllers" id="IcS-Rk-4Gr"/>
                         <segue destination="xZt-PO-abx" kind="relationship" relationship="viewControllers" id="12U-K6-z3o"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-495" y="-8"/>
+            <point key="canvasLocation" x="-830" y="-10"/>
         </scene>
     </scenes>
     <resources>

@@ -9,24 +9,47 @@
 import UIKit
 import Alamofire
 
-class dailymenuViewController: UIPageViewController {
+class dailymenuViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     var restaurants = [Restaurant]()
+    var newPageViewController : UIPageViewController?
+    var currentIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // remove view background
-         self.view.backgroundColor = UIColor.clearColor()
+        self.view.backgroundColor = UIColor.clearColor()
         
         self.getAllRestaurants()
+       
+    }
+    
+    func instantiatePageViewController(){
+        self.newPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? UIPageViewController
         
+        var firstView = self.viewControllerAtIndex(0)
+        
+        self.newPageViewController?.dataSource = self
+        self.newPageViewController?.delegate = self
+        
+        self.newPageViewController?.setViewControllers([firstView!], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: {done in })
+        
+        //self.pageViewController?.setViewControllers([firstView], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        
+        self.addChildViewController(self.newPageViewController!)
+        self.view.addSubview(self.newPageViewController!.view)
+        self.newPageViewController?.didMoveToParentViewController(self)
     }
     
     func getAllRestaurants() {
         
+        var id = UIDevice.currentDevice().identifierForVendor.UUIDString as String
+        
+        println(id)
+        
         // get all subscribed restaurants
-        Alamofire.request(.GET, Router.userSubscriptions(1))
+        Alamofire.request(.GET, Router.userSubscriptions(id))
             
             .responseJSON { (_, _, JSON, _) in
                 
@@ -60,6 +83,8 @@ class dailymenuViewController: UIPageViewController {
     
     func getAllMenus() {
         
+        var iterationcount = 0
+        
         for (index, restaurant) in enumerate(self.restaurants) {
             
             // get all menus for current restaurant
@@ -92,10 +117,15 @@ class dailymenuViewController: UIPageViewController {
                     
             };
             
-            if(index >= self.restaurants.count ){
-                // looped through all restaurants
+            if(index >= self.restaurants.count - 1 ){
+                // looped through all restaurants; data is ready!
+                
+                self.setupData()
+                self.instantiatePageViewController()
                 println(self.restaurants[0].data.menu)
             }
+            
+            iterationcount++;
             
         }
         
@@ -146,6 +176,77 @@ class dailymenuViewController: UIPageViewController {
         
         return newData
         
+    }
+    
+    func setupData() {
+        
+        var test = UILabel(frame: CGRectMake(35, 35, self.view.frame.width - 70, 80))
+        
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        
+        var index = (viewController as singleMenuViewController).pageIndex
+        
+        if index == 0 || index == NSNotFound {
+            return nil
+        }
+        
+        index!--
+        
+        println("Decreasing Index: \(index)")
+        
+        return self.viewControllerAtIndex(index!)
+        
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        
+        println(viewController)
+        
+        
+        
+        var index = (viewController as singleMenuViewController).pageIndex
+        
+        if index == NSNotFound {
+            return nil
+        }
+        
+        index!++
+        
+        println("Increasing Index: \(index)")
+        
+        if index == self.restaurants.count {
+            return nil;
+        }
+        return self.viewControllerAtIndex(index!)
+        
+    }
+    
+    func viewControllerAtIndex(index : Int) -> UIViewController? {
+        
+        if index > self.restaurants.count {
+            return nil;
+        }
+        
+        // Create a new view controller and pass suitable data.
+        //let view = UIViewController(nibName: "singleMenuView", bundle: nil) as singleMenuViewController
+        
+        let view = self.storyboard?.instantiateViewControllerWithIdentifier("singleMenuView") as singleMenuViewController
+
+        view.restaurant = self.restaurants[index]
+        view.pageIndex = index
+        
+        return view
+    }
+    
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        println(self.restaurants.count)
+        return self.restaurants.count
+    }
+    
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 0
     }
     
 }

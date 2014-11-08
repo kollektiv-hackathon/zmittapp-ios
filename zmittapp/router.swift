@@ -17,7 +17,7 @@ enum Router: URLStringConvertible {
     case restaurant(Int)
     case menuItems(Int)
     case menuItem(Int, Int)
-    case userSubscriptions(Int)
+    case userSubscriptions(String)
     
     var URLString: String {
         let path: String = {
