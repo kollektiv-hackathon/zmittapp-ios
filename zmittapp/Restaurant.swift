@@ -17,6 +17,7 @@ struct restaurantData {
     var lng: Double!
     var email: String!
     var menu: [menuData]!
+    var distance: Double! = 0.0
 }
 
 // define data a menu holds

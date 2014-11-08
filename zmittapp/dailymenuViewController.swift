@@ -148,7 +148,8 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
             lat:    restaurant["lat"] as Double,
             lng:    restaurant["lon"] as Double,
             email:  restaurant["email"] as String,
-            menu:   [menuData]()
+            menu:   [menuData](),
+            distance: 0.0
         )
         
         // instantiate new Restaurant with fetched data

@@ -1,13 +1,22 @@
 import UIKit
 import Alamofire
+import CoreLocation
 
-class nearbyViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+extension Double {
+    func format(f: String) -> String {
+        return NSString(format: "%\(f)f", self)
+    }
+}
+
+class nearbyViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
     // will contain all restaurants for this view
     var restaurants = [Restaurant]()
     
     @IBOutlet var _overviewTable: UITableView!
-    
+    var manager:CLLocationManager!
+    var currentLocation: CLLocationCoordinate2D!
+
     
     override func viewDidLoad() {
         
@@ -26,37 +35,46 @@ class nearbyViewController: UITableViewController, UITableViewDelegate, UITableV
         tableView.frame = tableRect;*/
         
         // get all restaurants
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.distanceFilter = 20 //meter
+        manager.startUpdatingLocation()
         
-        Alamofire.request(.GET, Router.restaurantsAtLocation, parameters: ["lat":1.0, "lon":2.0] )
+    }
+    
+    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+        currentLocation = locations[0].coordinate
+
+        println(currentLocation.latitude)
+        println(currentLocation.longitude)
+        
+        Alamofire.request(.GET, Router.restaurantsAtLocation, parameters: ["lat":currentLocation.latitude, "lon":currentLocation.longitude] )
             .responseJSON { (request, _, data, _) in
                 println(request.description)
                 
                 if let jsonResponse = data as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
                     
+                    if(!self.restaurants.isEmpty){
+                        self.restaurants.removeAll(keepCapacity: false)
+                    }
+                    
                     // loop through response
                     for restaurant in jsonResponse {
-                        
                         self.addRestaurant(restaurant)
-
-                        
                     }
                 } else if let jsonResponse = data as? [String: AnyObject] { // single restaurant as response
-                    println(jsonResponse);
-
-                    self.addRestaurant(jsonResponse)
-                    
+                    println("only one object");
                 }else{
-                    
                     // data not correct format
                     println("requested data could not be formatted")
-                    
                 }
-                
                 // update table
                 self._overviewTable.reloadData()
                 
         };
-        
+
     }
     
     // handle api response
@@ -70,7 +88,8 @@ class nearbyViewController: UITableViewController, UITableViewDelegate, UITableV
             lat:    restaurant["lat"] as Double,
             lng:    restaurant["lon"] as Double,
             email:  restaurant["email"] as String,
-            menu:   [menuData]()
+            menu:   [menuData](),
+            distance: restaurant["distance"] as Double
         )
         
         // instanciate new Restaurant with fetched data
@@ -121,7 +140,10 @@ class nearbyViewController: UITableViewController, UITableViewDelegate, UITableV
             customCell.registerSubviewContent()
         }
         
-        customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
+        let doubleFormat = ".1"
+        customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "\(self.restaurants[indexPath.row].data.distance.format(doubleFormat)) km")
+//        customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
+
         
     }
     
