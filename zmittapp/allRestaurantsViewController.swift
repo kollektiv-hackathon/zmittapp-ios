@@ -35,6 +35,10 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
         
         // get all restaurants
         Alamofire.request(.GET, Router.restaurants)
+/*            .responseJSON{(request, response, data, error) in
+                println(data)
+        };*/
+            
             .responseJSON { (_, _, JSON, _) in
 
                 if let jsonResponse = JSON as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
@@ -60,7 +64,7 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
                 // update table
                 self._overviewTable.reloadData()
                 
-        };
+            };
         
     }
     

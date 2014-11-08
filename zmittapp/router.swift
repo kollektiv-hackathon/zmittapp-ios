@@ -13,6 +13,7 @@ enum Router: URLStringConvertible {
     static let baseURLString = "http://api.zmittapp.ch/app_dev.php/"
 
     case restaurants
+    case restaurantsAtLocation
     case restaurant(Int)
     case menuItems(Int)
     case menuItem(Int, Int)
@@ -22,6 +23,8 @@ enum Router: URLStringConvertible {
             switch self {
             case .restaurants:
                 return "restaurants/"
+            case .restaurantsAtLocation:
+                return "restaurants/location"
             case .restaurant(let id):
                 return "restaurants/\(id)"
             case .menuItems(let restaurantId):

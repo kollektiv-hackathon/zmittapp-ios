@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A0322B60-44B0-4A85-9050-1CF4E7C81E31</string>
+	<string>0F017B15-F72D-497E-A091-07CB90D2AD55</string>
 	<key>IDESourceControlProjectName</key>
 	<string>zmittapp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -22,7 +22,7 @@
 		<key>1CBDB9B4D13E96F6FC192CE3D26289CFAA190EC3</key>
 		<string>../..</string>
 		<key>67620B5EFA902936DF04070AF595B76AB0333747</key>
-		<string>../..Alamofire</string>
+		<string>../..Alamofire/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kollektiv-hackathon/zmittapp-ios.git</string>
@@ -36,17 +36,17 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1CBDB9B4D13E96F6FC192CE3D26289CFAA190EC3</string>
+			<string>67620B5EFA902936DF04070AF595B76AB0333747</string>
 			<key>IDESourceControlWCCName</key>
-			<string>zmittapp</string>
+			<string>Alamofire</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>67620B5EFA902936DF04070AF595B76AB0333747</string>
+			<string>1CBDB9B4D13E96F6FC192CE3D26289CFAA190EC3</string>
 			<key>IDESourceControlWCCName</key>
-			<string>zmittappAlamofire</string>
+			<string>zmittapp</string>
 		</dict>
 	</array>
 </dict>
