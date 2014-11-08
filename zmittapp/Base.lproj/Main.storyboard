@@ -121,20 +121,39 @@
             </objects>
             <point key="canvasLocation" x="275" y="-309"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="bHn-2x-chE">
+            <objects>
+                <navigationController id="Q8D-vf-WHr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="mVC-yI-ex9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PaV-be-bSs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xZt-PO-abx" kind="relationship" relationship="rootViewController" id="azG-xg-SG5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5N-oQ-Qeu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="367"/>
+        </scene>
         <!--In der Nähe-->
         <scene sceneID="cbx-3U-B90">
             <objects>
                 <tableViewController id="xZt-PO-abx" customClass="nearbyViewController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P2j-V4-DmU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="P2j-V4-DmU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="restaurantCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="restaurantCell" id="R04-ul-W1s" customClass="customTableViewCell" customModule="zmittapp" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="restaurantCell" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="restaurantCell" rowHeight="80" id="R04-ul-W1s" customClass="customTableViewCell" customModule="zmittapp" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R04-ul-W1s" id="xKD-j7-NFb">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -143,13 +162,14 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="In der Nähe" id="7OP-bO-VHe"/>
+                    <navigationItem key="navigationItem" title="In der Nähe" id="Zge-OH-Nl8"/>
                     <connections>
                         <outlet property="_overviewTable" destination="P2j-V4-DmU" id="gFc-wu-eUQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpP-U9-ngF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="323" y="348"/>
+            <point key="canvasLocation" x="1450" y="315"/>
         </scene>
         <!--Tages Menüs-->
         <scene sceneID="aAx-Ob-eOb">
@@ -183,7 +203,7 @@
                     <connections>
                         <segue destination="0TO-2f-zIA" kind="relationship" relationship="viewControllers" id="ZhI-hS-vUY"/>
                         <segue destination="75J-Aw-623" kind="relationship" relationship="viewControllers" id="IcS-Rk-4Gr"/>
-                        <segue destination="xZt-PO-abx" kind="relationship" relationship="viewControllers" id="12U-K6-z3o"/>
+                        <segue destination="Q8D-vf-WHr" kind="relationship" relationship="viewControllers" id="ycc-cZ-sXf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
