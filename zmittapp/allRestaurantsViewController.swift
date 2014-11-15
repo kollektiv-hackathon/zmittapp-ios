@@ -9,10 +9,11 @@
 import UIKit
 import Alamofire
 
-class allRestaurantsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
+class allRestaurantsViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate {
     
     // will contain all restaurants for this view
     var restaurants = [Restaurant]()
+    var filteredRestaurants = [Restaurant]()
 
     @IBOutlet var _overviewTable: UITableView!
     
@@ -27,6 +28,10 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
         self._overviewTable.separatorColor = UIColor.clearColor()
         
         self._overviewTable.separatorInset = UIEdgeInsetsZero
+        
+        self.searchDisplayController?.searchResultsTableView.rowHeight = _overviewTable.rowHeight
+        self.searchDisplayController?.searchResultsTableView.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
+        self.searchDisplayController?.searchResultsTableView.separatorColor = UIColor.clearColor()
         
         /*CGRect tableRect = self.view.frame;
         tableRect.origin.x += tableBorderLeft; // make the table begin a few pixels right from its origin
@@ -96,8 +101,9 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
     //
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // check if array available (request sent)
+        if tableView == self.searchDisplayController!.searchResultsTableView{
+            return self.filteredRestaurants.count
+        }
         return self.restaurants.count
     }
     
@@ -111,12 +117,15 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         // set new controller for detail view
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("detailViewController") as detailViewController
         
         // add data to new controller
-        controller.restaurant = self.restaurants[indexPath.row]
+        if tableView == self.searchDisplayController!.searchResultsTableView{
+            controller.restaurant = self.filteredRestaurants[indexPath.row]
+        } else {
+            controller.restaurant = self.restaurants[indexPath.row]
+        }
         
         // navigate to new controller
         self.navigationController?.pushViewController(controller, animated: true)
@@ -131,7 +140,13 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
             customCell.registerSubviewContent()
         }
         
-        customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            customCell.setContent(self.filteredRestaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
+
+        } else {
+            customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
+
+        }
         
     }
     
@@ -144,6 +159,25 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func filterContentForSearchText(searchText: String) {
+        // Filter the array using the filter method
+        self.filteredRestaurants = self.restaurants.filter({( restaurant: Restaurant) -> Bool in
+            let stringMatch = restaurant.data.name.lowercaseString.rangeOfString(searchText.lowercaseString)
+            return stringMatch != nil
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+
 
 
 }

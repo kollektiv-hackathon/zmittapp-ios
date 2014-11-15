@@ -105,7 +105,6 @@ class nearbyViewController: UITableViewController, UITableViewDelegate, UITableV
     //
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         // check if array available (request sent)
         return self.restaurants.count
     }
@@ -141,7 +140,9 @@ class nearbyViewController: UITableViewController, UITableViewDelegate, UITableV
         }
         
         let doubleFormat = ".1"
+
         customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "\(self.restaurants[indexPath.row].data.distance.format(doubleFormat)) km")
+
 //        customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
 
         
