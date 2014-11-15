@@ -15,8 +15,14 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     var newPageViewController : UIPageViewController?
     var currentIndex: Int = 0
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // spin the fuck
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidesWhenStopped = true
         
         // remove view background
         self.view.backgroundColor = UIColor.clearColor()
@@ -40,11 +46,12 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         self.addChildViewController(self.newPageViewController!)
         self.view.addSubview(self.newPageViewController!.view)
         self.newPageViewController?.didMoveToParentViewController(self)
+
     }
     
     func getAllRestaurants() {
         
-        var id = UIDevice.currentDevice().identifierForVendor.UUIDString as String
+        var id = "11CF2061-9BC4-4D80-9C1B-A1055EF25457" //UIDevice.currentDevice().identifierForVendor.UUIDString as String
         
         println(id)
         
@@ -59,6 +66,14 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                         .responseJSON { (request, response, JSON, error) in
                             
                             println(request)
+                            println("created new user for this device")
+                            
+                            // hide loader
+                            self.activityIndicator.stopAnimating()
+                            
+                            //
+                            // TODO: display info for new user here
+                            //
                     };
                     
                     println("no user available")
@@ -88,6 +103,9 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                     
                     // get menus for restaurants
                     self.getAllMenus()
+                    
+                    // hide loader
+                    self.activityIndicator.stopAnimating()
                     
                 }
                 

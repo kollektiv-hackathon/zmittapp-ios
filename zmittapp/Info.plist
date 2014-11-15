@@ -30,6 +30,7 @@
 	<array>
 		<string>Brandon_reg.otf</string>
 		<string>Brandon_reg_it.otf</string>
+		<string>Tangerine_Bold.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>

@@ -36,6 +36,10 @@
 		88E6B8821A07B6D8009F962E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88E6B87D1A07B554009F962E /* Alamofire.framework */; };
 		88E6B8831A07B6D8009F962E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88E6B87D1A07B554009F962E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88E6B8881A07BE09009F962E /* router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E6B8871A07BE09009F962E /* router.swift */; };
+		88F4F97D1A178B6A0069EE2B /* Tangerine_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88F4F97B1A178B6A0069EE2B /* Tangerine_Regular.ttf */; };
+		88F4F97E1A178B6A0069EE2B /* Tangerine_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88F4F97B1A178B6A0069EE2B /* Tangerine_Regular.ttf */; };
+		88F4F97F1A178B6A0069EE2B /* Tangerine_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88F4F97C1A178B6A0069EE2B /* Tangerine_Bold.ttf */; };
+		88F4F9801A178B6A0069EE2B /* Tangerine_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88F4F97C1A178B6A0069EE2B /* Tangerine_Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,8 @@
 		88E6B8691A077228009F962E /* zmittappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zmittappTests.swift; sourceTree = "<group>"; };
 		88E6B8771A07B554009F962E /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		88E6B8871A07BE09009F962E /* router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = router.swift; sourceTree = "<group>"; };
+		88F4F97B1A178B6A0069EE2B /* Tangerine_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tangerine_Regular.ttf; sourceTree = "<group>"; };
+		88F4F97C1A178B6A0069EE2B /* Tangerine_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tangerine_Bold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,8 @@
 		887D0E7D1A0BBC7D00E3837B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				88F4F97B1A178B6A0069EE2B /* Tangerine_Regular.ttf */,
+				88F4F97C1A178B6A0069EE2B /* Tangerine_Bold.ttf */,
 				887D0E7E1A0BBC9400E3837B /* Brandon_bld_it.otf */,
 				887D0E7F1A0BBC9400E3837B /* Brandon_bld.otf */,
 				887D0E801A0BBC9400E3837B /* Brandon_blk_it.otf */,
@@ -362,6 +370,7 @@
 				887D0E921A0BE19900E3837B /* Brandon_light_it.otf in Resources */,
 				887D0E931A0BE19900E3837B /* Brandon_light.otf in Resources */,
 				887D0E9D1A0D2BA700E3837B /* Images.xcassets in Resources */,
+				88F4F97F1A178B6A0069EE2B /* Tangerine_Bold.ttf in Resources */,
 				887D0E941A0BE19900E3837B /* Brandon_med_it.otf in Resources */,
 				887D0E951A0BE19900E3837B /* Brandon_med.otf in Resources */,
 				887D0E961A0BE19900E3837B /* Brandon_reg_it.otf in Resources */,
@@ -370,6 +379,7 @@
 				887D0E991A0BE19900E3837B /* Brandon_thin.otf in Resources */,
 				88E6B8591A077228009F962E /* Main.storyboard in Resources */,
 				88E6B85E1A077228009F962E /* LaunchScreen.xib in Resources */,
+				88F4F97D1A178B6A0069EE2B /* Tangerine_Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +387,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F4F97E1A178B6A0069EE2B /* Tangerine_Regular.ttf in Resources */,
+				88F4F9801A178B6A0069EE2B /* Tangerine_Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
