@@ -33,6 +33,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="EWH-7r-C77">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="Oeu-fI-W7j" id="PaK-fQ-lfg"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="restaurantCell" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="restaurantCell" rowHeight="80" id="qZm-0O-Mfd" customClass="customTableViewCell" customModule="zmittapp" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -52,9 +60,19 @@
                     <navigationItem key="navigationItem" title="ALLE" id="6AU-Eg-zjS"/>
                     <connections>
                         <outlet property="_overviewTable" destination="InN-x1-tRc" id="l3k-iM-Efn"/>
+                        <outlet property="searchDisplayController" destination="LpA-ID-qJN" id="2qA-gM-sKX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqH-5A-8MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="LpA-ID-qJN">
+                    <connections>
+                        <outlet property="delegate" destination="Oeu-fI-W7j" id="BkH-QS-VVe"/>
+                        <outlet property="searchBar" destination="EWH-7r-C77" id="dqg-9s-exl"/>
+                        <outlet property="searchContentsController" destination="Oeu-fI-W7j" id="ZH3-bD-BaT"/>
+                        <outlet property="searchResultsDataSource" destination="Oeu-fI-W7j" id="cCR-4L-3OL"/>
+                        <outlet property="searchResultsDelegate" destination="Oeu-fI-W7j" id="kMu-yO-dqf"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1450" y="-367"/>
         </scene>
@@ -186,9 +204,26 @@
                     <navigationItem key="navigationItem" title="In der Nähe" id="Zge-OH-Nl8"/>
                     <connections>
                         <outlet property="_overviewTable" destination="P2j-V4-DmU" id="gFc-wu-eUQ"/>
+                        <outlet property="searchDisplayController" destination="LSj-hB-Nxb" id="yD5-n1-O7e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CpP-U9-ngF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="wYy-cd-Rf3">
+                    <connections>
+                        <outlet property="delegate" destination="xZt-PO-abx" id="mFi-Ej-Q0W"/>
+                        <outlet property="searchContentsController" destination="xZt-PO-abx" id="YaH-Bu-xYr"/>
+                        <outlet property="searchResultsDataSource" destination="xZt-PO-abx" id="oZJ-nv-lMx"/>
+                        <outlet property="searchResultsDelegate" destination="xZt-PO-abx" id="jjK-d9-Ezi"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="LSj-hB-Nxb">
+                    <connections>
+                        <outlet property="delegate" destination="xZt-PO-abx" id="xRb-aH-xI5"/>
+                        <outlet property="searchContentsController" destination="xZt-PO-abx" id="Lnm-ll-9Bx"/>
+                        <outlet property="searchResultsDataSource" destination="xZt-PO-abx" id="Dcv-mM-wLb"/>
+                        <outlet property="searchResultsDelegate" destination="xZt-PO-abx" id="n5t-vS-2nW"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1450" y="315"/>
         </scene>
