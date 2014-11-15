@@ -15,10 +15,36 @@ class rootTabBarController: UITabBarController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // clear background
+        
         self.tabBar.tintColor = UIColor(red: 1/255*234, green: 1/255*231, blue: 1/255*220, alpha: 1)
-        self.tabBar.barTintColor = UIColor(red: 1/255*37, green: 1/255*31, blue: 1/255*29, alpha: 1)
+        self.tabBar.barTintColor = UIColor(red: 1/255*72, green: 1/255*67, blue: 1/255*63, alpha: 1)
+        
+
+
+        
 
     }
+    
+    override func viewWillLayoutSubviews() {
+        var tabFrame = self.tabBar.frame //self.TabBar is IBOutlet of your TabBar
+        tabFrame.size.height = 67;
+        tabFrame.origin.y = self.view.frame.size.height - 67;
+        self.tabBar.frame = tabFrame;
+
+
+    }
+
+    
+    override func tabBar(tabBar: UITabBar, didBeginCustomizingItems items: [AnyObject]) {
+        
+        for item in items {
+            item.setTitlePositionAdjustment(UIOffset( horizontal: 50, vertical: -60))
+        }
+        
+       // self.tabBarItem.setTitlePositionAdjustment(UIOffset( horizontal: 50, vertical: -60))
+    }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -30,7 +30,7 @@
             <objects>
                 <tableViewController title="Alle Lokale" id="Oeu-fI-W7j" customClass="allRestaurantsViewController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="InN-x1-tRc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="EWH-7r-C77">
@@ -142,12 +142,11 @@
         <!--ALLE-->
         <scene sceneID="Hww-4l-gSz">
             <objects>
-                <navigationController id="75J-Aw-623" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ALLE" image="nav_map" id="sfK-qG-srz"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="p8f-4c-XQo">
+                <navigationController id="75J-Aw-623" customClass="customNavigationController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ALLE" image="alle" id="sfK-qG-srz"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p8f-4c-XQo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.14509803921568629" green="0.12156862745098039" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -160,11 +159,11 @@
             </objects>
             <point key="canvasLocation" x="275" y="-309"/>
         </scene>
-        <!--Item-->
+        <!--IN DER NÄHE-->
         <scene sceneID="bHn-2x-chE">
             <objects>
-                <navigationController id="Q8D-vf-WHr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mVC-yI-ex9"/>
+                <navigationController id="Q8D-vf-WHr" customClass="customNavigationController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="IN DER NÄHE" image="location" id="mVC-yI-ex9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PaV-be-bSs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -227,7 +226,7 @@
             </objects>
             <point key="canvasLocation" x="1450" y="315"/>
         </scene>
-        <!--Heutige Menüs-->
+        <!--MENU-->
         <scene sceneID="Zh7-W7-DO4">
             <objects>
                 <viewController id="maR-ni-JZP" customClass="dailymenuViewController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -239,8 +238,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HHC-fj-qno">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HHC-fj-qno">
+                                <rect key="frame" x="290" y="291" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -249,7 +248,7 @@
                             <constraint firstAttribute="centerX" secondItem="HHC-fj-qno" secondAttribute="centerX" id="mhb-WS-fbc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Heutige Menüs" id="N8v-U1-Njt"/>
+                    <tabBarItem key="tabBarItem" title="MENU" image="nav_map" id="N8v-U1-Njt"/>
                     <connections>
                         <outlet property="activityIndicator" destination="HHC-fj-qno" id="ENa-JZ-dMe"/>
                     </connections>
@@ -280,8 +279,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="maR-ni-JZP" kind="relationship" relationship="viewControllers" id="pmh-WN-dM6"/>
-                        <segue destination="75J-Aw-623" kind="relationship" relationship="viewControllers" id="IcS-Rk-4Gr"/>
                         <segue destination="Q8D-vf-WHr" kind="relationship" relationship="viewControllers" id="ycc-cZ-sXf"/>
+                        <segue destination="75J-Aw-623" kind="relationship" relationship="viewControllers" id="IcS-Rk-4Gr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -290,6 +289,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="alle" width="25" height="24"/>
+        <image name="location" width="21" height="32"/>
         <image name="nav_map" width="26" height="26"/>
     </resources>
 </document>

@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         //window?.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         
+        // navigation bar
+        UINavigationBar.appearance().barTintColor = UIColor(red: 1/255*72, green: 1/255*67, blue: 1/255*63, alpha: 1)
+        var attributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
+        // search bar
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+        UITextField.appearance().textColor = UIColor.whiteColor()
+        
+        
         return true
     }
 
