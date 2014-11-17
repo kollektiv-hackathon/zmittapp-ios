@@ -34,7 +34,7 @@ class singleMenuViewController: UIViewController {
         
         // paint menu items to screen
         for menu in restaurant.data.menu {
-            self.createMenu()
+            self.createMenu(menu)
         }
         
     }
@@ -83,7 +83,7 @@ class singleMenuViewController: UIViewController {
 
     }
     
-    func createMenu() {
+    func createMenu(menu: menuData) {
         
     }
     

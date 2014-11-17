@@ -42,10 +42,16 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         self.newPageViewController?.setViewControllers([firstView!], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: {done in })
         
         //self.pageViewController?.setViewControllers([firstView], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        self.newPageViewController?.view.frame = CGRectMake(0, 0, self.view.frame.width, super.view.frame.height - 67)
+        
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(red: 1/255*172, green: 1/255*161, blue: 1/255*141, alpha: 1)
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(red: 1/255*72, green: 1/255*67, blue: 1/255*63, alpha: 1)
         
         self.addChildViewController(self.newPageViewController!)
         self.view.addSubview(self.newPageViewController!.view)
         self.newPageViewController?.didMoveToParentViewController(self)
+        
+
 
     }
     
@@ -276,7 +282,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        println(self.restaurants.count)
         return self.restaurants.count
     }
     

@@ -260,7 +260,7 @@
         <!--Heutige Menüs-->
         <scene sceneID="7Dh-oS-Eba">
             <objects>
-                <pageViewController restorationIdentifier="PageViewController" storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VJR-Fo-ZUn" sceneMemberID="viewController">
+                <pageViewController restorationIdentifier="PageViewController" storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="crossDissolve" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="VJR-Fo-ZUn" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Heutige Menüs" id="3Pg-Bz-6Qq"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j7O-zm-unA" userLabel="First Responder" sceneMemberID="firstResponder"/>
