@@ -51,6 +51,8 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         self.view.addSubview(self.newPageViewController!.view)
         self.newPageViewController?.didMoveToParentViewController(self)
         
+        // hide loader
+        self.activityIndicator.stopAnimating()
 
 
     }
@@ -71,7 +73,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                     Alamofire.request(.POST, Router.createUser, parameters: ["user[uid]": id])
                         .responseJSON { (request, response, JSON, error) in
                             
-                            println(request)
                             println("created new user for this device")
                             
                             // hide loader
@@ -110,8 +111,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                     // get menus for restaurants
                     self.getAllMenus()
                     
-                    // hide loader
-                    self.activityIndicator.stopAnimating()
                     
                 }
                 
@@ -131,8 +130,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                     
                     if let jsonResponse = JSON as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
                         
-                        println(jsonResponse)
-                        
                         // loop through response
                         for menu in jsonResponse {
                             
@@ -141,8 +138,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                         }
                         
                     } else if let jsonResponse = JSON as? [String: AnyObject] { // single restaurant as response
-                        
-                        println(JSON)
                         
                         restaurant.addMenu(self.createMenu(jsonResponse))
                         
@@ -153,17 +148,16 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                         
                     }
                     
+                    if(index >= self.restaurants.count - 1 ){
+                        // looped through all restaurants; data is ready!
+                        
+                        self.instantiatePageViewController()
+                    }
+                    
+                    iterationcount++;
+                    
             };
             
-            if(index >= self.restaurants.count - 1 ){
-                // looped through all restaurants; data is ready!
-                
-                self.setupData()
-                self.instantiatePageViewController()
-                println(self.restaurants[0].data.menu)
-            }
-            
-            iterationcount++;
             
         }
         
@@ -177,8 +171,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     // handle api response
     func addRestaurant(restaurant: [String:AnyObject]) {
-        
-        println(restaurant)
         
         // prepare struct with supplied data
         var newData = restaurantData(
@@ -219,11 +211,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         
     }
     
-    func setupData() {
-        
-        var test = UILabel(frame: CGRectMake(35, 35, self.view.frame.width - 70, 80))
-        
-    }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
@@ -235,16 +222,11 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         
         index!--
         
-        println("Decreasing Index: \(index)")
-        
         return self.viewControllerAtIndex(index!)
         
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        
-        println(viewController)
-        
         
         
         var index = (viewController as singleMenuViewController).pageIndex
@@ -254,8 +236,6 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         }
         
         index!++
-        
-        println("Increasing Index: \(index)")
         
         if index == self.restaurants.count {
             return nil;

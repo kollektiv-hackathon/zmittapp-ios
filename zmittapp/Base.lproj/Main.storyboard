@@ -142,7 +142,7 @@
         <!--ALLE-->
         <scene sceneID="Hww-4l-gSz">
             <objects>
-                <navigationController id="75J-Aw-623" customClass="customNavigationController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="75J-Aw-623" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ALLE" image="alle" id="sfK-qG-srz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p8f-4c-XQo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -162,7 +162,7 @@
         <!--IN DER NÄHE-->
         <scene sceneID="bHn-2x-chE">
             <objects>
-                <navigationController id="Q8D-vf-WHr" customClass="customNavigationController" customModule="zmittapp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Q8D-vf-WHr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="IN DER NÄHE" image="location" id="mVC-yI-ex9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PaV-be-bSs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
