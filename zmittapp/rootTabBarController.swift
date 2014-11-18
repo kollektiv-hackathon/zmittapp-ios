@@ -27,8 +27,8 @@ class rootTabBarController: UITabBarController {
     
     override func viewWillLayoutSubviews() {
         var tabFrame = self.tabBar.frame //self.TabBar is IBOutlet of your TabBar
-        tabFrame.size.height = 67;
-        tabFrame.origin.y = self.view.frame.size.height - 67;
+        tabFrame.size.height = 54;
+        tabFrame.origin.y = self.view.frame.size.height - 54;
         self.tabBar.frame = tabFrame;
 
 
@@ -37,9 +37,6 @@ class rootTabBarController: UITabBarController {
     
     override func tabBar(tabBar: UITabBar, didBeginCustomizingItems items: [AnyObject]) {
         
-        for item in items {
-            item.setTitlePositionAdjustment(UIOffset( horizontal: 50, vertical: -60))
-        }
         
        // self.tabBarItem.setTitlePositionAdjustment(UIOffset( horizontal: 50, vertical: -60))
     }

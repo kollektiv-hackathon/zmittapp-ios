@@ -35,7 +35,7 @@ class singleMenuViewController: UIViewController {
         self.createTitle()
         
         
-        var menuView = UIScrollView(frame: CGRectMake(0, titleHeight + UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height - titleHeight - 67 - 25))
+        var menuView = UIScrollView(frame: CGRectMake(0, titleHeight + UIApplication.sharedApplication().statusBarFrame.height, self.view.frame.width, self.view.frame.height - titleHeight - 54 - 30))
         
         var contentY = CGFloat(0);
         

@@ -32,18 +32,10 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
         self.searchDisplayController?.searchResultsTableView.rowHeight = _overviewTable.rowHeight
         self.searchDisplayController?.searchResultsTableView.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         self.searchDisplayController?.searchResultsTableView.separatorColor = UIColor.clearColor()
-
         
-        /*CGRect tableRect = self.view.frame;
-        tableRect.origin.x += tableBorderLeft; // make the table begin a few pixels right from its origin
-        tableRect.size.width -= tableBorderLeft + tableBorderRight; // reduce the width of the table
-        tableView.frame = tableRect;*/
         
         // get all restaurants
         Alamofire.request(.GET, Router.restaurants)
-/*            .responseJSON{(request, response, data, error) in
-                println(data)
-        };*/
             
             .responseJSON { (_, _, JSON, _) in
 
