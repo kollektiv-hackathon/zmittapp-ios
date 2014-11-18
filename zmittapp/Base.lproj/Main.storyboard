@@ -123,6 +123,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="APN-Ge-Kc7">
+                                <rect key="frame" x="16" y="310" width="51" height="31"/>
+                                <connections>
+                                    <action selector="subscribe:" destination="J87-jw-ydf" eventType="valueChanged" id="kg1-CE-SPG"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -133,6 +139,7 @@
                         <outlet property="_lokalMenu" destination="xco-ba-bQX" id="E2e-2J-chw"/>
                         <outlet property="_lokalName" destination="VCk-Gl-ahU" id="MQP-q6-sZT"/>
                         <outlet property="_lokalPhone" destination="NX0-42-K7g" id="ZN9-eA-k3C"/>
+                        <outlet property="subscribeSwitch" destination="APN-Ge-Kc7" id="6Pb-Ib-S4x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddt-pV-i0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
