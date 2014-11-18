@@ -307,11 +307,11 @@
 				TargetAttributes = {
 					88E6B84B1A077228009F962E = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = WR4VDCTQWR;
+						DevelopmentTeam = QVZY3AKXYV;
 					};
 					88E6B8621A077228009F962E = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = WR4VDCTQWR;
+						DevelopmentTeam = QVZY3AKXYV;
 						TestTargetID = 88E6B84B1A077228009F962E;
 					};
 				};

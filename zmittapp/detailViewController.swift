@@ -20,9 +20,27 @@ class detailViewController: UIViewController {
     @IBOutlet weak var _lokalPhone: UILabel!
     @IBOutlet weak var _lokalLat: UILabel!
     @IBOutlet weak var _lokalLng: UILabel!
-    
     @IBOutlet weak var _lokalMenu: UILabel!
     
+    
+    @IBOutlet weak var subscribeSwitch: UISwitch!
+    //TODO: api getter call to determine state of switch (true/false)
+    @IBAction func subscribe(sender: UISwitch) {
+        var userId = "11CF2061-9BC4-4D80-9C1B-A1055EF25457" //UIDevice.currentDevice().identifierForVendor.UUIDString as String
+        if(subscribeSwitch.on){
+            Alamofire.request(.PUT, Router.subscribe(restaurant.data.id, userId))
+                .responseJSON { (request, _, JSON, _) in
+                    println(request)
+                    println(JSON)
+                }
+        } else {
+            Alamofire.request(.PUT, Router.unsubscribe(restaurant.data.id, userId))
+                .responseJSON { (request, _, JSON, _) in
+                    println(request)
+                    println(JSON)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
