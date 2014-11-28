@@ -22,31 +22,31 @@ class detailViewController: UIViewController {
     @IBOutlet weak var _lokalLng: UILabel!
     @IBOutlet weak var _lokalMenu: UILabel!
     
+    var userId = "11CF2061-9BC4-4D80-9C1B-A1055EF25457" //UIDevice.currentDevice().identifierForVendor.UUIDString as String
     
     @IBOutlet weak var subscribeSwitch: UISwitch!
-    //TODO: api getter call to determine state of switch (true/false)
+    
+    
     @IBAction func subscribe(sender: UISwitch) {
-        var userId = "11CF2061-9BC4-4D80-9C1B-A1055EF25457" //UIDevice.currentDevice().identifierForVendor.UUIDString as String
         if(subscribeSwitch.on){
-            Alamofire.request(.PUT, Router.subscribe(restaurant.data.id, userId))
+            Alamofire.request(.PUT, Router.subscribe(restaurant.data.id, self.userId))
                 .responseJSON { (request, _, JSON, _) in
                     println(request)
-                    println(JSON)
                 }
         } else {
-            Alamofire.request(.PUT, Router.unsubscribe(restaurant.data.id, userId))
+            Alamofire.request(.PUT, Router.unsubscribe(restaurant.data.id, self.userId))
                 .responseJSON { (request, _, JSON, _) in
                     println(request)
-                    println(JSON)
             }
         }
+        //notify that subscriptions have changed
+        NSNotificationCenter.defaultCenter().postNotificationName("SubscriptionsChanged", object: nil)
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        loadSubscribeButtonState(); //TODO: preload before user sees screen
         
-        // setup view before requesting menu data
+        super.viewDidLoad()
         self.setupView()
         
         // get all menus for current restaurant
@@ -76,6 +76,52 @@ class detailViewController: UIViewController {
         };
         
     }
+    
+    private func loadSubscribeButtonState () -> Void {
+        self.getSubscribedRestaurants({(subscriptions: [Restaurant]) in
+            self.subscribeSwitch.on = self.determineState(subscriptions)
+        })
+    }
+    
+    private func determineState(subscriptions: [Restaurant]) -> Bool {
+        let subscribed = subscriptions.filter() {$0.data.id == self.restaurant.data.id}
+        return !subscribed.isEmpty
+    }
+    
+    private func getSubscribedRestaurants(callback: ([Restaurant]) -> ()) -> Void {
+        Alamofire.request(.GET, Router.userSubscriptions(self.userId))
+            .responseJSON { (request, _, JSON, _) in
+                var restaurants: [Restaurant] = []
+                if let jsonResponse = JSON as? Array<[String:AnyObject]>{
+                    for restaurant in jsonResponse {
+                        var r = self.createRestaurantObject(restaurant)
+                        restaurants.append(r as Restaurant)
+                    }
+                }
+                callback(restaurants)
+        }
+    }
+    
+    private func createRestaurantObject(restaurant: [String:AnyObject]) -> Restaurant {
+        // prepare struct with supplied data
+        var newData = restaurantData(
+            id:     restaurant["id"] as Int,
+            name:   restaurant["name"] as String,
+            phone:  restaurant["phone"] as String,
+            lat:    restaurant["lat"] as Double,
+            lng:    restaurant["lon"] as Double,
+            email:  restaurant["email"] as String,
+            menu:   [menuData](),
+            distance: 0.0
+        )
+        
+        // instantiate new Restaurant with fetched data
+        var newRest: Restaurant = Restaurant(data: newData)
+        
+        return newRest
+        
+    }
+
     
     // handle api response
     func addMenu(menu: [String:AnyObject]) {

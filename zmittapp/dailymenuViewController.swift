@@ -17,6 +17,16 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSubscriptionsChanged:", name:"SubscriptionsChanged", object: nil)
+
+    }
+    
+    func onSubscriptionsChanged(notification: NSNotification){
+        // Observer: is executed when user changes restaurant subscription -> reload subscribed restaurants of this user. 
+        //self.getAllRestaurants();
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

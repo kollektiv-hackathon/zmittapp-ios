@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 enum Router: URLStringConvertible {
-    static let baseURLString = "http://api.zmittapp.ch/"
+    //static let baseURLString = "http://api.zmittapp.ch/"
+    static let baseURLString = "http://zmittapp.api/app_dev.php/"
 
     case restaurants
     case restaurantsAtLocation
