@@ -106,6 +106,10 @@ class detailViewController: UIViewController {
         // prepare struct with supplied data
         var newData = restaurantData(
             id:     restaurant["id"] as Int,
+            address:restaurant["address"] as String,
+            zip:    restaurant["zip"] as String,
+            city:   restaurant["city"] as String,
+            country:restaurant["country"] as String,
             name:   restaurant["name"] as String,
             phone:  restaurant["phone"] as String,
             lat:    restaurant["lat"] as Double,
@@ -113,6 +117,7 @@ class detailViewController: UIViewController {
             email:  restaurant["email"] as String,
             menu:   [menuData](),
             distance: 0.0
+
         )
         
         // instantiate new Restaurant with fetched data

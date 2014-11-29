@@ -80,6 +80,10 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
         // prepare struct with supplied data
         var newData = restaurantData(
             id:     restaurant["id"] as Int,
+            address:restaurant["address"] as String,
+            zip:    restaurant["zip"] as String,
+            city:   restaurant["city"] as String,
+            country:restaurant["country"] as String,
             name:   restaurant["name"] as String,
             phone:  restaurant["phone"] as String,
             lat:    restaurant["lat"] as Double,
@@ -141,12 +145,14 @@ class allRestaurantsViewController: UITableViewController, UITableViewDelegate, 
             customCell.registerSubviewContent()
         }
         
+        
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            customCell.setContent(self.filteredRestaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
+            var restaurantData = self.filteredRestaurants[indexPath.row].data
+            customCell.setContent(restaurantData.name, smallLabelText: restaurantData.address + ", " + restaurantData.country + "-" + restaurantData.zip + " " + restaurantData.city)
 
         } else {
-            customCell.setContent(self.restaurants[indexPath.row].data.name, smallLabelText: "Schiffbaustrasse 10, 8035 Zürich")
-
+            var restaurantData = self.restaurants[indexPath.row].data
+            customCell.setContent(restaurantData.name, smallLabelText: restaurantData.address + ", " + restaurantData.country + "-" + restaurantData.zip + " " + restaurantData.city)
         }
         
     }
