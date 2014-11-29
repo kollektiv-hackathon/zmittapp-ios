@@ -27,7 +27,7 @@ struct menuData {
     var main_course: String!
     var desert: String!
     var price: Double!
-    var date: String!
+    var date: NSDate!
     var vegetarian: Bool!
     var vegan: Bool!
 }

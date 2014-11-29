@@ -125,6 +125,16 @@ class detailViewController: UIViewController {
     
     // handle api response
     func addMenu(menu: [String:AnyObject]) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "CEST") //this doesn't take effect so far..?
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+        let date = dateFormatter.dateFromString(menu["date"] as String)
+        let correctedDate = NSCalendar.currentCalendar().dateByAddingUnit( //ugly hack because abbreviation isnt working
+            NSCalendarUnit.HourCalendarUnit,
+            value: 1,
+            toDate: date!,
+            options: NSCalendarOptions(0))
+
         
         // prepare struct with supplied data
         var newData = menuData(
@@ -133,7 +143,7 @@ class detailViewController: UIViewController {
             main_course:    menu["main_course"] as String,
             desert:         menu["desert"] as String,
             price:          menu["price"] as Double,
-            date:           menu["date"] as String,
+            date:           correctedDate as NSDate!,
             vegetarian:     menu["vegetarian"] as Bool,
             vegan:          menu["vegan"] as Bool
         )

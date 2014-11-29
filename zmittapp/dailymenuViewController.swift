@@ -140,10 +140,13 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                     
                     if let jsonResponse = JSON as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
                         
-                        // loop through response
                         for menu in jsonResponse {
-                            
-                            restaurant.addMenu(self.createMenu(menu))
+                            var m = self.createMenu(menu)
+                            var today = NSCalendar.currentCalendar().components(NSCalendarUnit.EraCalendarUnit|NSCalendarUnit.YearCalendarUnit|NSCalendarUnit.MonthCalendarUnit|NSCalendarUnit.DayCalendarUnit, fromDate: NSDate() );
+                            var menuDate = NSCalendar.currentCalendar().components(NSCalendarUnit.EraCalendarUnit|NSCalendarUnit.YearCalendarUnit|NSCalendarUnit.MonthCalendarUnit|NSCalendarUnit.DayCalendarUnit, fromDate: m.date );
+                            if(today.isEqual(menuDate)){
+                                restaurant.addMenu(self.createMenu(menu))
+                            }
                             
                         }
                         
@@ -204,7 +207,16 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     // create new menu struct
     func createMenu(menu: [String:AnyObject]) -> menuData {
-        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "CEST") //this doesn't take effect so far..?
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+        let date = dateFormatter.dateFromString(menu["date"] as String)
+        let correctedDate = NSCalendar.currentCalendar().dateByAddingUnit( //ugly hack because abbreviation isnt working
+            NSCalendarUnit.HourCalendarUnit,
+            value: 1,
+            toDate: date!,
+            options: NSCalendarOptions(0))
+
         // prepare struct with supplied data
         var newData = menuData(
             id:             menu["id"] as Int,
@@ -212,7 +224,7 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
             main_course:    menu["main_course"] as String,
             desert:         menu["desert"] as String,
             price:          menu["price"] as Double,
-            date:           menu["date"] as String,
+            date:           correctedDate as NSDate!,
             vegetarian:     menu["vegetarian"] as Bool,
             vegan:          menu["vegan"] as Bool
         )
