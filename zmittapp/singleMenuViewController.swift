@@ -47,6 +47,7 @@ class singleMenuViewController: UIViewController {
             newMenu.frame.origin.y = contentY
             
             contentY += newMenu.frame.height
+            contentY += 10 // additional margin bottom to fully display last menu item
             
             menuView.addSubview(newMenu)
             //menuView.sizeToFit()

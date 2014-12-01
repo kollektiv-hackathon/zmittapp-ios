@@ -11,7 +11,7 @@ import Alamofire
 
 enum Router: URLStringConvertible {
     static let baseURLString = "http://api.zmittapp.ch/"
-
+    
     case restaurants
     case restaurantsAtLocation
     case restaurant(Int)

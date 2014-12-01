@@ -11,6 +11,10 @@ import UIKit
 // define data a restaurant holds
 struct restaurantData {
     var id: Int!
+    var address: String!
+    var zip: String!
+    var city: String!
+    var country: String!
     var name: String!
     var phone: String!
     var lat: Double!
@@ -27,7 +31,7 @@ struct menuData {
     var main_course: String!
     var desert: String!
     var price: Double!
-    var date: String!
+    var date: NSDate!
     var vegetarian: Bool!
     var vegan: Bool!
 }

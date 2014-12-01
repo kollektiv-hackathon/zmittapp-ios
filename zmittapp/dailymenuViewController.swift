@@ -17,6 +17,16 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSubscriptionsChanged:", name:"SubscriptionsChanged", object: nil)
+
+    }
+    
+    func onSubscriptionsChanged(notification: NSNotification){
+        // Observer: is executed when user changes restaurant subscription -> reload subscribed restaurants of this user. 
+        //self.getAllRestaurants();
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -130,10 +140,13 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
                     
                     if let jsonResponse = JSON as? Array<[String:AnyObject]>{ // multiple restaurants as repsonse
                         
-                        // loop through response
                         for menu in jsonResponse {
-                            
-                            restaurant.addMenu(self.createMenu(menu))
+                            var m = self.createMenu(menu)
+                            var today = NSCalendar.currentCalendar().components(NSCalendarUnit.EraCalendarUnit|NSCalendarUnit.YearCalendarUnit|NSCalendarUnit.MonthCalendarUnit|NSCalendarUnit.DayCalendarUnit, fromDate: NSDate() );
+                            var menuDate = NSCalendar.currentCalendar().components(NSCalendarUnit.EraCalendarUnit|NSCalendarUnit.YearCalendarUnit|NSCalendarUnit.MonthCalendarUnit|NSCalendarUnit.DayCalendarUnit, fromDate: m.date );
+                            if(today.isEqual(menuDate)){
+                                restaurant.addMenu(self.createMenu(menu))
+                            }
                             
                         }
                         
@@ -175,6 +188,10 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
         // prepare struct with supplied data
         var newData = restaurantData(
             id:     restaurant["id"] as Int,
+            address:restaurant["address"] as String,
+            zip:    restaurant["zip"] as String,
+            city:   restaurant["city"] as String,
+            country:restaurant["country"] as String,
             name:   restaurant["name"] as String,
             phone:  restaurant["phone"] as String,
             lat:    restaurant["lat"] as Double,
@@ -182,6 +199,7 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
             email:  restaurant["email"] as String,
             menu:   [menuData](),
             distance: 0.0
+
         )
         
         // instantiate new Restaurant with fetched data
@@ -194,7 +212,16 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     // create new menu struct
     func createMenu(menu: [String:AnyObject]) -> menuData {
-        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeZone = NSTimeZone(abbreviation: "CEST") //this doesn't take effect so far..?
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+        let date = dateFormatter.dateFromString(menu["date"] as String)
+        let correctedDate = NSCalendar.currentCalendar().dateByAddingUnit( //ugly hack because abbreviation isnt working
+            NSCalendarUnit.HourCalendarUnit,
+            value: 1,
+            toDate: date!,
+            options: NSCalendarOptions(0))
+
         // prepare struct with supplied data
         var newData = menuData(
             id:             menu["id"] as Int,
@@ -202,7 +229,7 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
             main_course:    menu["main_course"] as String,
             desert:         menu["desert"] as String,
             price:          menu["price"] as Double,
-            date:           menu["date"] as String,
+            date:           correctedDate as NSDate!,
             vegetarian:     menu["vegetarian"] as Bool,
             vegan:          menu["vegan"] as Bool
         )
