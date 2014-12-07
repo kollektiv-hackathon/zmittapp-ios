@@ -17,18 +17,10 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    override func viewWillAppear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSubscriptionsChanged:", name:"SubscriptionsChanged", object: nil)
-
-    }
-    
-    func onSubscriptionsChanged(notification: NSNotification){
-        // Observer: is executed when user changes restaurant subscription -> reload subscribed restaurants of this user. 
-        //self.getAllRestaurants();
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onSubscriptionsChanged:", name:"SubscriptionsChanged", object: nil)
         
         // spin the fuck
         self.activityIndicator.startAnimating()
@@ -41,9 +33,24 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
        
     }
     
+    func onSubscriptionsChanged(notification: NSNotification){
+        // Observer: is executed when user changes restaurant subscription -> reload subscribed restaurants of this user.
+        self.getAllRestaurants();
+    }
+    
     func instantiatePageViewController(){
-        self.newPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? UIPageViewController
         
+        // return if pageViewController already instantiated
+        if self.newPageViewController != nil {
+            var firstView = self.viewControllerAtIndex(0)
+            
+            self.newPageViewController?.setViewControllers([firstView!], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: {done in })
+            
+            return
+        }
+        
+        self.newPageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? UIPageViewController
+
         var firstView = self.viewControllerAtIndex(0)
         
         self.newPageViewController?.dataSource = self
@@ -69,9 +76,9 @@ class dailymenuViewController: UIViewController, UIPageViewControllerDataSource,
     
     func getAllRestaurants() {
         
-        var id = "11CF2061-9BC4-4D80-9C1B-A1055EF25457" //UIDevice.currentDevice().identifierForVendor.UUIDString as String
+        self.restaurants.removeAll(keepCapacity: false)
         
-        println(id)
+        var id = "11CF2061-9BC4-4D80-9C1B-A1055EF25457" //UIDevice.currentDevice().identifierForVendor.UUIDString as String
         
         // get all subscribed restaurants
         Alamofire.request(.GET, Router.userSubscriptions(id))

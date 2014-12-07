@@ -32,14 +32,18 @@ class detailViewController: UIViewController {
             Alamofire.request(.PUT, Router.subscribe(restaurant.data.id, self.userId))
                 .responseJSON { (request, _, JSON, _) in
                     println(request)
+                    self.notifyNewSubscription()
                 }
         } else {
             Alamofire.request(.PUT, Router.unsubscribe(restaurant.data.id, self.userId))
                 .responseJSON { (request, _, JSON, _) in
                     println(request)
+                    self.notifyNewSubscription()
             }
         }
-        //notify that subscriptions have changed
+    }
+
+    func notifyNewSubscription() {
         NSNotificationCenter.defaultCenter().postNotificationName("SubscriptionsChanged", object: nil)
     }
     
