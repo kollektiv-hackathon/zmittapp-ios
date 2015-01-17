@@ -31,13 +31,11 @@ class detailViewController: UIViewController {
         if(subscribeSwitch.on){
             Alamofire.request(.PUT, Router.subscribe(restaurant.data.id, self.userId))
                 .responseJSON { (request, _, JSON, _) in
-                    println(request)
                     self.notifyNewSubscription()
                 }
         } else {
             Alamofire.request(.PUT, Router.unsubscribe(restaurant.data.id, self.userId))
                 .responseJSON { (request, _, JSON, _) in
-                    println(request)
                     self.notifyNewSubscription()
             }
         }
@@ -52,6 +50,8 @@ class detailViewController: UIViewController {
         
         super.viewDidLoad()
         self.setupView()
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg")!)
         
         // get all menus for current restaurant
         Alamofire.request(.GET, Router.menuItems(self.restaurant.data.id))
@@ -170,6 +170,9 @@ class detailViewController: UIViewController {
         self._lokalPhone.text = restaurant.data.phone
         self._lokalLat.text = String(format:"%f", restaurant.data.lat)
         self._lokalLng.text = String(format:"%f", restaurant.data.lng)
+        
+        self._lokalName.font = UIFont(name: "Brandon Grotesque", size: 26)
+        //self.smallLabel.font = UIFont(name: "BrandonGrotesque-RegularItalic", size: 16)
         
         self.navigationItem.title = self.restaurant.data.name
         
